@@ -112,6 +112,11 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Cursor-close stack-trace tracking — A440
 - Per-script temporary-directory tracking — A441
 - Experimental failure input/script dumps — A442
+- DataWeave temporary-file base directory — A443
+- Synchronous temporary-file deletion — A444
+- Maximum DataWeave output-file size — A445
+- Legacy value-selector first-occurrence compatibility — A446
+- Experimental dumper exception stack traces — A447
 
 ## Previously covered
 
