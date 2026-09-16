@@ -1,0 +1,40 @@
+name: Generate 10,000 DataWeave Q&A Dataset
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate dataset
+        run: python scripts/generate_10000.py
+      - name: Validate dataset
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('dataset/questions-10000.json').read_text())
+          assert data['count']==10000
+          assert len(data['examples'])==10000
+          assert data['examples'][0]['id']=='DW-00001'
+          assert data['examples'][-1]['id']=='DW-10000'
+          required={'id','difficulty','topic','question','input','dataweave','output','explanation','commonMistakes'}
+          assert all(required <= set(x) for x in data['examples'])
+          print('Validated exactly 10,000 structured examples')
+          PY
+      - name: Commit generated dataset
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dataset/questions-10000.json
+          git diff --cached --quiet || git commit -m 'Generate 10,000 DataWeave Q&A examples'
+          git push
