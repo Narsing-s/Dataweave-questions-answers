@@ -102,6 +102,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Off-heap memory-pool slot sizing — A430
 - Per-slot off-heap allocation limit — A431
 - JSON Binary writer-encoding compatibility — A432
+- Indexed-reader page sizing — A433
+- DataWeave recursion stack limits — A434
+- Java stack-trace depth — A435
+- DataWeave scheduler thread-pool sizing — A436
 
 ## Previously covered
 
