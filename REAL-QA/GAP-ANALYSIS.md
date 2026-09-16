@@ -96,6 +96,12 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Indexed CSV string-retention memory behavior — A424
 - Deterministic JavaModuleLoader method ordering — A425
 - Java reflection accessibility control on JDK 17+ — A426
+- Writer character-buffer sizing — A427
+- Java public-interface definition lookup — A428
+- Java bean getter/setter versus field accessor selection — A429
+- Off-heap memory-pool slot sizing — A430
+- Per-slot off-heap allocation limit — A431
+- JSON Binary writer-encoding compatibility — A432
 
 ## Previously covered
 
