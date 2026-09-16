@@ -40,6 +40,26 @@ The browser-only learning account supports:
 
 The account model is intentionally backend-free. It is suitable for a learning/demo site, not sensitive production authentication. See [`docs/ACCOUNT-SECURITY.md`](./docs/ACCOUNT-SECURITY.md).
 
+### 10,000 Practice Bank
+
+The dedicated [`practice-bank.html`](./practice-bank.html) page provides a focused interface for the complete generated dataset:
+
+- Search all 10,000 records by `DW-xxxxx`, question, topic, DataWeave code, input, output, or explanation
+- Filter by **Easy / Medium / Advanced**
+- Filter by topic
+- Choose 10 / 25 / 50 / 100 records per page
+- Open any record through its ID/search result
+- See **Input → DataWeave → Expected Output → Explanation** together
+- Read common mistakes and interview tips
+- Hide/show reference DataWeave
+- Copy DataWeave code
+- Open a question in a dedicated practice/challenge view before revealing the solution
+- Copy a shareable URL for a specific `DW-xxxxx` record
+- Responsive layout for desktop and mobile
+- Dataset loading, validation, empty-result, and retry states
+
+The page reads `dataset/questions-10000.json` directly in the browser, so no backend service is required.
+
 The main explorer is `explorer.html` and supports:
 
 - Easy / Medium / Advanced navigation
@@ -59,6 +79,7 @@ The main explorer is `explorer.html` and supports:
 
 ## 📚 Read the questions directly in GitHub
 
+- [10,000 Practice Bank UI](./practice-bank.html)
 - [Easy Q&A](./EASY/README.md)
 - [Medium Q&A](./MEDIUM/README.md)
 - [Advanced Q&A](./ADVANCED/README.md)
@@ -167,6 +188,7 @@ Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-ST
 .
 ├── index.html
 ├── explorer.html
+├── practice-bank.html
 ├── examples.html
 ├── lab.html
 ├── lab-v2.html
