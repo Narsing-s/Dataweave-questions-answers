@@ -1,0 +1,29 @@
+name: Curated DataWeave Q&A Quality
+
+on:
+  push:
+    paths:
+      - 'REAL-QA/**'
+      - 'scripts/check-real-qa-duplicates.py'
+      - '.github/workflows/real-qa-quality.yml'
+  pull_request:
+    paths:
+      - 'REAL-QA/**'
+      - 'scripts/check-real-qa-duplicates.py'
+      - '.github/workflows/real-qa-quality.yml'
+  workflow_dispatch:
+
+jobs:
+  curated-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check exact normalized question duplicates
+        run: python scripts/check-real-qa-duplicates.py
