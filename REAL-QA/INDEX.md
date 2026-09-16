@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**600 curated questions:** 200 Easy + 200 Medium + 200 Advanced.
+**615 curated questions:** 205 Easy + 205 Medium + 205 Advanced.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -14,6 +14,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Easy E126-E150](./NEW-EASY-126-150.md)
 - [Easy E151-E175](./NEW-EASY-151-175.md)
 - [Easy E176-E200](./NEW-EASY-176-200.md)
+- [Easy E201-E205](./NEW-EASY-201-205.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
@@ -23,6 +24,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Medium M126-M150](./NEW-MEDIUM-126-150.md)
 - [Medium M151-M175](./NEW-MEDIUM-151-175.md)
 - [Medium M176-M200](./NEW-MEDIUM-176-200.md)
+- [Medium M201-M205](./NEW-MEDIUM-201-205.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
@@ -32,6 +34,11 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A126-A150](./NEW-ADVANCED-126-150.md)
 - [Advanced A151-A175](./NEW-ADVANCED-151-175.md)
 - [Advanced A176-A200](./NEW-ADVANCED-176-200.md)
+- [Advanced A201-A205](./NEW-ADVANCED-201-205.md)
+
+## Gap tracking
+
+- [DataWeave Q&A Gap Analysis](./GAP-ANALYSIS.md) — tracks uncovered or underrepresented concepts so future additions remain meaningful rather than superficial duplicates.
 
 ## Learning order
 
@@ -39,10 +46,10 @@ This index is the entry point for the curated question bank. The repository also
 Focus on selectors, arrays, objects, strings, conditions, defaults, basic filtering, mapping, type conversion, collection functions and small business transformations.
 
 ### Medium
-Focus on grouping, deduplication, flattening, `flatMap`, object transformations, aggregation, conditional fields, lookups, dynamic projections, validation and practical API mappings.
+Focus on grouping, deduplication, flattening, `flatMap`, object transformations, aggregation, conditional fields, lookups, dynamic projections, validation, local scopes and practical API mappings.
 
 ### Advanced
-Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, audit transformations, regex processing and production-style validation contracts.
+Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, audit transformations, regex processing, validation aggregation and production-style contracts.
 
 ## Required question format
 
@@ -91,19 +98,19 @@ The curated bank progressively covers:
 - Number calculations and type casting
 - Null/default handling
 - Conditional fields and expressions
-- Functions and lambdas
+- Functions, lambdas and local scopes
 - `$`, `$$`, `$$$`
-- Pattern matching and regular expressions
+- `do`, `using`, `update` and pattern matching
+- Regular-expression validation and extraction
 - Date/time transformations and timezone handling
 - JSON/XML/CSV transformations and namespaces
 - API request/response mappings
-- Error-response shaping
+- Error-response shaping and validation aggregation
 - Lookup and enrichment patterns
 - Financial/order/customer/banking scenarios
 - Reconciliation and snapshot comparison
-- Duplicate detection and data-quality checks
+- Duplicate detection and deterministic duplicate resolution
 - Idempotency and audit transformations
-- Validation and production response envelopes
 - Polymorphic input normalization
 - Edge cases and interview challenges
 
