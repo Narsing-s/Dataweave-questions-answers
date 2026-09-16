@@ -1,7 +1,18 @@
-# Medium DataWeave Questions
+# Medium DataWeave Question & Answer Bank
 
-Intermediate questions covering map/filter/reduce, mapObject/filterObject, nested structures, flatten/flatMap, object and array functions, type coercion, dates, null/default handling, and practical transformations.
+**6000 complete questions** with input, DataWeave answer, expected output, explanation, common mistakes and interview tips.
 
-Questions are ordered from **MEDIUM-00001** upward and each follows: Question → Input → DataWeave → Expected Output → Explanation → Common Mistakes.
-
-See `dataset/questions-10000.json` for the complete structured bank and use the difficulty field to filter Medium questions.
+| Range | Questions |
+|---|---:|
+| [questions-00001-00500](questions-00001-00500.md) | 500 |
+| [questions-00501-01000](questions-00501-01000.md) | 500 |
+| [questions-01001-01500](questions-01001-01500.md) | 500 |
+| [questions-01501-02000](questions-01501-02000.md) | 500 |
+| [questions-02001-02500](questions-02001-02500.md) | 500 |
+| [questions-02501-03000](questions-02501-03000.md) | 500 |
+| [questions-03001-03500](questions-03001-03500.md) | 500 |
+| [questions-03501-04000](questions-03501-04000.md) | 500 |
+| [questions-04001-04500](questions-04001-04500.md) | 500 |
+| [questions-04501-05000](questions-04501-05000.md) | 500 |
+| [questions-05001-05500](questions-05001-05500.md) | 500 |
+| [questions-05501-06000](questions-05501-06000.md) | 500 |

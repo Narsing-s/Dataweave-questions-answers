@@ -1,7 +1,14 @@
-# Easy DataWeave Questions
+# Easy DataWeave Question & Answer Bank
 
-Beginner-friendly questions covering DataWeave syntax, payload/attributes, selectors, strings, basic arrays and objects, simple operators, types, defaults, and basic conditionals.
+**4000 complete questions** with input, DataWeave answer, expected output, explanation, common mistakes and interview tips.
 
-Questions are ordered from **EASY-00001** upward and each follows: Question → Input → DataWeave → Expected Output → Explanation → Common Mistakes.
-
-See `dataset/questions-10000.json` for the complete structured bank and use the difficulty field to filter Easy questions.
+| Range | Questions |
+|---|---:|
+| [questions-00001-00500](questions-00001-00500.md) | 500 |
+| [questions-00501-01000](questions-00501-01000.md) | 500 |
+| [questions-01001-01500](questions-01001-01500.md) | 500 |
+| [questions-01501-02000](questions-01501-02000.md) | 500 |
+| [questions-02001-02500](questions-02001-02500.md) | 500 |
+| [questions-02501-03000](questions-02501-03000.md) | 500 |
+| [questions-03001-03500](questions-03001-03500.md) | 500 |
+| [questions-03501-04000](questions-03501-04000.md) | 500 |
