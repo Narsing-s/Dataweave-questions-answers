@@ -30,6 +30,7 @@ This matrix prevents the curated bank from becoming a collection of repeated `ma
 - Pagination/windowing with explicit boundary rules
 - Streaming, stream-capable functions and deferred output constraints
 - Module organization, imports, visibility and component packaging
+- DataWeave component descriptor generation and test-component packaging behavior
 - Crypto hashing, HMAC and cryptographic sink validation
 - DataWeave system properties and language-level compatibility
 - Schema-driven type reuse from JSON Schema and Avro schema modules
