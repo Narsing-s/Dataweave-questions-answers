@@ -1,23 +1,29 @@
 name: Generate 10,000 DataWeave Q&A Dataset
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate dataset
+
+      - name: Generate dataset and readable question banks
         run: python scripts/generate_10000.py
-      - name: Validate dataset
+
+      - name: Validate dataset and question files
         run: |
           python - <<'PY'
           import json
@@ -27,14 +33,20 @@ jobs:
           assert len(data['examples'])==10000
           assert data['examples'][0]['id']=='DW-00001'
           assert data['examples'][-1]['id']=='DW-10000'
-          required={'id','difficulty','topic','question','input','dataweave','output','explanation','commonMistakes'}
+          required={'id','difficulty','topic','question','input','dataweave','output','explanation','commonMistakes','interviewTip'}
           assert all(required <= set(x) for x in data['examples'])
-          print('Validated exactly 10,000 structured examples')
+          assert {x['difficulty'] for x in data['examples']} == {'Easy','Medium','Advanced'}
+          for folder in ['EASY','MEDIUM','ADVANCED']:
+              files=list(Path(folder).glob('questions-*.md'))
+              assert files, f'No generated Q&A files in {folder}'
+              assert all(f.stat().st_size > 0 for f in files)
+          print('Validated 10,000 records and readable Easy/Medium/Advanced Q&A files')
           PY
-      - name: Commit generated dataset
+
+      - name: Commit generated Q&A files
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add dataset/questions-10000.json
-          git diff --cached --quiet || git commit -m 'Generate 10,000 DataWeave Q&A examples'
+          git add dataset/questions-10000.json EASY MEDIUM ADVANCED
+          git diff --cached --quiet || git commit -m 'Publish 10,000 readable DataWeave Q&A examples'
           git push
