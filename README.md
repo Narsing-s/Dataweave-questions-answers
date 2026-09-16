@@ -1,6 +1,6 @@
 # DataWeave Lab — Questions, Answers & 10,000 Examples
 
-A practical, open learning library for MuleSoft DataWeave developers built around one workflow:
+A practical, self-contained learning library for MuleSoft DataWeave developers built around one workflow:
 
 **Question → Input → DataWeave Answer → Expected Output → Explanation → Common Mistakes → Interview Tip**
 
@@ -40,6 +40,10 @@ The browser-only learning account supports:
 
 The account model is intentionally backend-free. It is suitable for a learning/demo site, not sensitive production authentication. See [`docs/ACCOUNT-SECURITY.md`](./docs/ACCOUNT-SECURITY.md).
 
+### Practice Assistant
+
+[`assistant.html`](./assistant.html) is a working, backend-free practice assistant. It loads the repository's local 10,000-question dataset in the browser and searches for the closest examples. It is intentionally transparent: it does not claim to be a remote generative AI service.
+
 ### 10,000 Practice Bank
 
 The dedicated [`practice-bank.html`](./practice-bank.html) page provides a focused interface for the complete generated dataset:
@@ -65,7 +69,7 @@ The main explorer is `explorer.html` and supports:
 - Easy / Medium / Advanced navigation
 - Topic buttons and topic dropdown
 - Full-text search across question, code, input, output and explanation
-- 10 / 25 / 50 questions per page
+- 10 / 25 / 50 / 100 questions per page
 - Pagination with disabled edge controls
 - Random question
 - Copy DataWeave with visual confirmation
@@ -73,18 +77,23 @@ The main explorer is `explorer.html` and supports:
 - Practice-this challenge mode
 - Challenge mode with reference solution, output and interview tip
 - Shareable question links
+- Practice Assistant navigation
 - URL-based topic/level/search/challenge routing
 - Mobile responsive layout
 - Loading, empty and dataset-error states
 
-## 📚 Read the questions directly in GitHub
+## 📚 Read and learn directly in GitHub
 
 - [10,000 Practice Bank UI](./practice-bank.html)
+- [Practice Assistant](./assistant.html)
 - [Easy Q&A](./EASY/README.md)
 - [Medium Q&A](./MEDIUM/README.md)
 - [Advanced Q&A](./ADVANCED/README.md)
 - [Curated real Q&A index](./REAL-QA/INDEX.md)
 - [Curated Q&A coverage matrix](./docs/REAL-QA-COVERAGE.md)
+- [Feature guide](./docs/FEATURES.md)
+- [Visual learning diagrams](./docs/DIAGRAMS.md)
+- [Practice mode guide](./docs/PRACTICE-MODE.md)
 - [All structured records](./dataset/questions-10000.json)
 - [Complete learning path](./docs/LEARNING-PATH.md)
 - [Interactive user guide](./docs/USER-GUIDE.md)
@@ -148,11 +157,14 @@ See [`docs/LEARNING-PATH.md`](./docs/LEARNING-PATH.md) for the complete beginner
 python scripts/generate_10000.py
 python scripts/validate_examples.py
 python scripts/check-real-qa-duplicates.py
+python scripts/quality-audit.py
 ```
 
 The generated outputs include the structured dataset and readable Easy/Medium/Advanced Markdown banks. GitHub Actions also runs repository validation and the curated Q&A duplicate check.
 
 The duplicate checker catches exact normalized question-title duplicates. It does not replace conceptual review; changing only names, IDs, numbers, or wording is still considered a duplicate when the underlying transformation objective is unchanged.
+
+The repository quality audit additionally checks the 10,000-record count, sequential IDs, required fields, DataWeave headers, duplicate normalized questions and required UI entry pages. It deliberately does not claim runtime execution.
 
 ## 📦 Packaging and releases
 
@@ -189,6 +201,7 @@ Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-ST
 ├── index.html
 ├── explorer.html
 ├── practice-bank.html
+├── assistant.html
 ├── examples.html
 ├── lab.html
 ├── lab-v2.html
