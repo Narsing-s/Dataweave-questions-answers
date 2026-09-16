@@ -59,6 +59,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Event Stream/SSE parsing and representation — A387
 - Java module builder/converter cache thread-safety livelock prevention — A388
 - Invalid/reversed range behavior and nullable range results — A389
+- DST-aware `atBeginningOfDay` offset resolution — A390
 
 ## Previously covered
 
