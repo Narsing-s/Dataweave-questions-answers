@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**675 curated questions:** 225 Easy + 225 Medium + 225 Advanced.
+**693 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 18 final non-duplicate gap questions.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -17,6 +17,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Easy E201-E205](./NEW-EASY-201-205.md)
 - [Easy E206-E210 — deep gaps](./DEEP-GAPS-EASY-206-210.md)
 - [Easy E211-E225](./NEW-EASY-211-225.md)
+- [Final gap coverage E226-E230](./FINAL-GAP-COVERAGE.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
@@ -29,6 +30,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Medium M201-M205](./NEW-MEDIUM-201-205.md)
 - [Medium M206-M210 — deep gaps](./DEEP-GAPS-MEDIUM-206-210.md)
 - [Medium M211-M225](./NEW-MEDIUM-211-225.md)
+- [Final gap coverage M226-M231](./FINAL-GAP-COVERAGE.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
@@ -41,6 +43,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A201-A205](./NEW-ADVANCED-201-205.md)
 - [Advanced A206-A210 — deep gaps](./DEEP-GAPS-ADVANCED-206-210.md)
 - [Advanced A211-A225](./NEW-ADVANCED-211-225.md)
+- [Final gap coverage A226-A237](./FINAL-GAP-COVERAGE.md)
 
 ## Gap tracking
 
@@ -110,6 +113,7 @@ The curated bank progressively covers:
 - Regular-expression validation, scanning and capture extraction
 - Date/time transformations and type semantics
 - JSON/XML/CSV transformations, MIME types and namespaces
+- Binary/text conversion boundaries
 - API request/response mappings and version normalization
 - Error-response shaping, `try`/fallback patterns and validation aggregation
 - Lookup/index and enrichment patterns
@@ -121,6 +125,10 @@ The curated bank progressively covers:
 - Pagination/windowing and boundary rules
 - Performance-aware reuse of derived collections
 - Typed reusable functions
+- Module organization and imports
+- Recursive transformations
+- XML attributes, repeated elements, mixed content and namespace edge cases
+- Currency-specific precision and minor-unit handling
 - Edge cases and interview challenges
 
 ## Verification note
