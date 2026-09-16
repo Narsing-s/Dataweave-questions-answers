@@ -72,6 +72,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Base-type validation without premature materialization — A400
 - Semantic tokens in the DataWeave Tooling API — A401
 - Type-check diagnostics for compiler subgraphs — A402
+- Cross-file AST scope navigation in the Tooling API — A403
+- Array range-selector performance on valid large ranges — A404
+- Syntax-version metadata in `TypeGraph` and `WeaveTypeResolution` — A405
+- Windows classloader resource resolution — A406
 
 ## Previously covered
 
