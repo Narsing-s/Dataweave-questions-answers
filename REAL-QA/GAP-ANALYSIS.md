@@ -44,6 +44,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Optional function-parameter metadata via `FunctionParam` — A375
 - Java output type representation via `com.mulesoft.dw.java.output_types_as_string` — A376
 - `internal` as a non-reserved identifier in current language levels — A407
+- Production DataWeave component-descriptor generation and JAR packaging — A450
+- Test-source component association for `internal` helper access — A451
 
 ## Current runtime/concurrency/format/compatibility coverage
 
