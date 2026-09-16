@@ -2,29 +2,48 @@
 
 This index is the entry point for the curated question bank. The repository also contains the large generated practice dataset; `REAL-QA` is specifically for distinct, hand-written learning and interview problems.
 
-## Learning order
+## Current curated bank
+
+**525 curated questions:** 175 Easy + 175 Medium + 175 Advanced.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
 - [Easy expansion](./EXPANSION-EASY.md)
-
-Focus: selectors, arrays, objects, strings, conditions, defaults, basic filtering, mapping and type conversion.
+- [Easy E76-E100](./NEW-EASY-76-100.md)
+- [Easy E101-E125](./NEW-EASY-101-125.md)
+- [Easy E126-E150](./NEW-EASY-126-150.md)
+- [Easy E151-E175](./NEW-EASY-151-175.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
 - [Medium expansion](./EXPANSION-MEDIUM.md)
-
-Focus: grouping, deduplication, flattening, `flatMap`, object transformations, aggregation, conditional fields and practical API mappings.
+- [Medium M76-M100](./NEW-MEDIUM-76-100.md)
+- [Medium M101-M125](./NEW-MEDIUM-101-125.md)
+- [Medium M126-M150](./NEW-MEDIUM-126-150.md)
+- [Medium M151-M175](./NEW-MEDIUM-151-175.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
 - [Advanced expansion](./EXPANSION-ADVANCED.md)
+- [Advanced A76-A100](./NEW-ADVANCED-76-100.md)
+- [Advanced A101-A125](./NEW-ADVANCED-101-125.md)
+- [Advanced A126-A150](./NEW-ADVANCED-126-150.md)
+- [Advanced A151-A175](./NEW-ADVANCED-151-175.md)
 
-Focus: multi-level grouping, dynamic keys, parent-child expansion, reusable functions, business classification, dates, aggregation, XML/CSV and production-style contracts.
+## Learning order
+
+### Easy
+Focus on selectors, arrays, objects, strings, conditions, defaults, basic filtering, mapping, type conversion, collection functions and small business transformations.
+
+### Medium
+Focus on grouping, deduplication, flattening, `flatMap`, object transformations, aggregation, conditional fields, lookups, dynamic projections, validation and practical API mappings.
+
+### Advanced
+Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, validation and production-style contracts.
 
 ## Required question format
 
-Every new curated question should contain:
+Every curated question should contain:
 
 1. Question
 2. Difficulty
@@ -51,10 +70,11 @@ Every new curated question should contain:
 - Explain empty/null/missing behavior for functions where it can affect production results.
 - Do not claim runtime validation unless the script has actually been executed in a compatible DataWeave/Mule runtime.
 - Prefer business scenarios over artificial function-only examples once fundamentals are covered.
+- Do not silently replace a real transformation with pseudocode.
 
 ## Coverage checklist
 
-The curated bank should progressively cover:
+The curated bank progressively covers:
 
 - Selectors and navigation
 - Arrays and objects
@@ -76,6 +96,9 @@ The curated bank should progressively cover:
 - Error-response shaping
 - Lookup and enrichment patterns
 - Financial/order/customer/banking scenarios
+- Reconciliation and snapshot comparison
+- Idempotency and audit transformations
+- Validation and production response envelopes
 - Edge cases and interview challenges
 
 ## Verification note
