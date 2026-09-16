@@ -65,6 +65,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Dynamic runtime evaluation and Java metadata/writer behavior — A299-A310
 - Runtime data-format descriptors, dynamic readers/writers, MIME separation, URL-encoded forms, parser limits, schema-source behavior, design-time validation, annotation targets, untrusted code, and runtime privileges — A311-A322
 - Remaining `dw::Runtime` execution, source-location, property, version, and delay capabilities — A323-A330
+- Typed runtime result unions, runtime logging/result diagnostics, descriptor absence handling, explicit failure versus captured failure, and experimental runtime compatibility — A343-A350
+- Custom data-format registration, scoped DataWeave logging configuration, dynamic `ReaderInput`, custom runtime logging services, and structured `Position` diagnostics — A351-A355
 
 ## Previously covered
 
@@ -103,6 +105,10 @@ The repository should not keep adding questions merely to increase the count. Th
 - temporal arithmetic and timezone conversion
 - streaming/deferred output
 - language-level/system-property compatibility
+- custom data-format registration
+- scoped DataWeave logging and runtime logging services
+- dynamic reader input contracts
+- structured source-position diagnostics
 
 ## Duplication rule
 
