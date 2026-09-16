@@ -92,6 +92,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Java `java.sql.Date` to DataWeave temporal-type mapping — A420
 - Indexed Latin-1 XML reader compatibility — A421
 - Removal of shadowed implicit inputs — A422
+- DataWeave input/output buffer spill thresholds and temporary-file behavior — A423
+- Indexed CSV string-retention memory behavior — A424
+- Deterministic JavaModuleLoader method ordering — A425
+- Java reflection accessibility control on JDK 17+ — A426
 
 ## Previously covered
 
