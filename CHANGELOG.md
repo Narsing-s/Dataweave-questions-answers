@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented here.
 
+## [Unreleased] - 2026-09-16
+
+### Added
+
+- Working local Practice Assistant at `assistant.html`.
+- Practice Assistant navigation from the authenticated Explorer.
+- Feature guide, visual DataWeave diagrams, and practice-mode documentation.
+- Comprehensive structural repository quality audit.
+- Automated GitHub Actions quality-audit workflow for structural checks and curated Q&A duplicate checks.
+- README documentation for the complete learning and practice surface.
+
+### Verification
+
+- Static audit checks the 10,000-record count, sequential IDs, required fields, difficulty/topic/question values, DataWeave headers, and required UI entry pages.
+- Curated question duplicate review remains handled by `scripts/check-real-qa-duplicates.py`.
+- Runtime execution of every DataWeave transformation is still not claimed by static validation.
+
 ## [1.0.0] - 2026-09-16
 
 ### Added
@@ -22,6 +39,4 @@ All notable changes to this project are documented here.
 - Full runtime execution of every DataWeave transformation is intentionally not claimed by the static validator.
 - Release packaging is reproducible through GitHub Actions.
 
-## Unreleased
-
-Future changes should be added here before the next version is tagged.
+Future changes should be added to `Unreleased` before the next version is tagged.
