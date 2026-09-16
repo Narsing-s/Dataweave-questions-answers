@@ -24,7 +24,7 @@ The 10,000-record bank is generated and structurally validated. Individual trans
 
 ## 🌐 Interactive learning site
 
-Open `index.html` for the landing page, then use **Explorer** to search and practice.
+Open `index.html` for the login page, then continue to **Explorer** to search and practice.
 
 The main explorer is `explorer.html` and supports:
 
@@ -57,18 +57,11 @@ The learning site is designed to work as a **static product**: users can learn w
 - [Complete learning path](./docs/LEARNING-PATH.md)
 - [Interactive user guide](./docs/USER-GUIDE.md)
 - [Question quality standard](./docs/QUESTION-STANDARD.md)
-- [Official DataWeave resources](./docs/OFFICIAL-RESOURCES.md)
 - [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
 - [Product roadmap](./docs/PRODUCT-ROADMAP.md)
 - [Release checklist](./docs/RELEASE-CHECKLIST.md)
 - [Package guide](./PACKAGE.md)
 - [Release readiness](./RELEASE.md)
-
-## 🔗 Official references
-
-This is an independent community learning project, not official MuleSoft documentation. For authoritative language behavior and version-specific details, use the [official DataWeave documentation](https://docs.mulesoft.com/dataweave/), [DataWeave Language Guide](https://docs.mulesoft.com/dataweave/latest/dataweave-language-guide), [DataWeave Cookbook](https://docs.mulesoft.com/dataweave/latest/dataweave-cookbook), and [DataWeave CLI](https://github.com/mulesoft/data-weave-cli).
-
-See [`docs/OFFICIAL-RESOURCES.md`](./docs/OFFICIAL-RESOURCES.md) for the full reference list.
 
 ## 🧭 Recommended learning path
 
