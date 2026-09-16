@@ -58,6 +58,14 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Streaming constraints with ordering/aggregation — A275
 - DataWeave system-property-driven runtime behavior — A276
 
+## Final format/runtime/security coverage
+
+- Avro, YAML, Excel, NDJSON, Protobuf, Java Properties, flat-file, and DWB edge behavior — A277-A286, A301-A310, A316-A318
+- Tree, Runtime, URL, Diff, binary, and function-introspection capabilities — A287-A298
+- Dynamic runtime evaluation and Java metadata/writer behavior — A299-A310
+- Runtime data-format descriptors, dynamic readers/writers, MIME separation, URL-encoded forms, parser limits, schema-source behavior, design-time validation, annotation targets, untrusted code, and runtime privileges — A311-A322
+- Remaining `dw::Runtime` execution, source-location, property, version, and delay capabilities — A323-A330
+
 ## Previously covered
 
 - `try` and structured error values — E207
