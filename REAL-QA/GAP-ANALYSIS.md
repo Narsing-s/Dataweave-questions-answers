@@ -30,6 +30,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Per-component language levels for embedded DataWeave engines — A358
 - `UNLIMITED_CONTEXT` precision and rounding metadata — A359
 - Scope visibility (`private`, `internal`, `@VisibleTo`) remains represented by A259 and the existing visibility coverage.
+- Repeated XML attribute selector result-shape preservation — A364
+- Sibling-reference annotation identity in type metadata — A365
+- Self-referential Java-array scope resolution — A366
+- Cycle-aware recursive type-metadata resolution — A367
 
 ## Previously covered
 
