@@ -37,6 +37,7 @@ This matrix prevents the curated bank from becoming a collection of repeated `ma
 - DataWeave system properties and language-level compatibility
 - Schema-driven type reuse from JSON Schema and Avro schema modules
 - DataWeave VS Code extension development, preview boundaries, Language Server diagnostics, and troubleshooting workflows
+- Core annotation documentation and discovery semantics, including overloaded-function documentation selection, labels, and experimental function interception
 
 ## Continue expanding carefully
 
