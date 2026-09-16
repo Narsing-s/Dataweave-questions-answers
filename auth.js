@@ -15,5 +15,51 @@
   function greetingMailto(u){const s=encodeURIComponent('Welcome to DataWeave Lab 🎉');const b=encodeURIComponent(`Hi ${u.name},\n\nWelcome to DataWeave Lab! 🎉\n\nYour first login was successful.\n\nDataWeave Lab`);return`mailto:${encodeURIComponent(u.email)}?subject=${s}&body=${b}`}
   function markFirstLogin(){if(localStorage.getItem(FIRST_LOGIN_KEY))return false;localStorage.setItem(FIRST_LOGIN_KEY,new Date().toISOString());return true}
   function renderAccount(target=document){const u=getUser();target.querySelectorAll('[data-auth-user]').forEach(x=>{x.textContent=u?u.name:'Login';x.title=u?`${u.name} · ${u.email}`:'Login'});target.querySelectorAll('[data-logout]').forEach(x=>{x.hidden=!u;x.addEventListener('click',e=>{e.preventDefault();logout()},{once:true})})}
-  window.DataWeaveAuth={getUser,createAccount,login,deleteAccount,logout,greetingMailto,markFirstLogin,renderAccount};document.addEventListener('DOMContentLoaded',()=>renderAccount());
+
+  // Cross-browser clipboard fallback. navigator.clipboard requires HTTPS/secure context;
+  // this fallback also makes local/static previews usable.
+  async function copyText(text){
+    text=String(text??'');
+    try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return true}}catch(_){ }
+    try{
+      const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';ta.style.pointerEvents='none';
+      document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
+      const ok=document.execCommand('copy');ta.remove();if(ok)return true;
+    }catch(_){ }
+    return false;
+  }
+  function buttonFeedback(b,ok,label){const old=label||b.textContent;b.textContent=ok?'✓ Copied':'⚠ Copy failed';setTimeout(()=>{b.textContent=old},1300)}
+  function actionId(b,type){
+    const v=b.dataset[type];if(v)return v;
+    const h=b.getAttribute('onclick')||'';
+    const m=h.match(new RegExp(type==='practice'?'openSingleChallenge\\([\\"\\\']([^\\"\\\']+)':'shareQuestion\\([\\"\\\']([^\\"\\\']+)'));
+    return m?m[1]:null;
+  }
+  function showToast(text){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t)}t.textContent=text;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),1400)}
+  function handleUtilityButton(b){
+    const onclick=b.getAttribute('onclick')||'';
+    const isCopy=b.hasAttribute('data-copy')||/copyCode\s*\(/.test(onclick)||/^📋/.test(b.textContent.trim())&&/copy/i.test(b.textContent);
+    const isPractice=b.hasAttribute('data-practice')||/openSingleChallenge\s*\(/.test(onclick)||/openPractice\s*\(/.test(onclick)||/🧠/.test(b.textContent);
+    const isShare=b.hasAttribute('data-share')||/shareQuestion\s*\(/.test(onclick)||/🔗/.test(b.textContent);
+    if(!isCopy&&!isPractice&&!isShare)return false;
+    const id=actionId(b,'practice')||actionId(b,'share')||b.dataset.copy||b.dataset.practice||b.dataset.share;
+    if(isPractice){
+      if(typeof window.openSingleChallenge==='function'&&id){window.openSingleChallenge(id);return true}
+      if(typeof window.openPractice==='function'&&id){window.openPractice(id);return true}
+      return false;
+    }
+    if(isShare){
+      const u=new URL(location.href);u.search='';if(id)u.searchParams.set('id',id);
+      copyText(u.href).then(ok=>{showToast(ok?'Question link copied':'Copy blocked — use the link shown in the address bar')});
+      return true;
+    }
+    const solution=b.closest('.card')?.querySelector('.solution .pre, .solution pre, [data-code]');
+    const code=b.dataset.code||solution?.textContent||'';
+    if(!code)return false;
+    copyText(code).then(ok=>buttonFeedback(b,ok,'📋 Copy'));
+    return true;
+  }
+  document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const handled=handleUtilityButton(b);if(handled){e.preventDefault();e.stopImmediatePropagation()}},true);
+
+  window.DataWeaveAuth={getUser,createAccount,login,deleteAccount,logout,greetingMailto,markFirstLogin,renderAccount,copyText};document.addEventListener('DOMContentLoaded',()=>renderAccount());
 })();
