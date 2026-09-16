@@ -1,72 +1,35 @@
 # DataWeave Q&A Gap Analysis
 
-This file tracks topics that should receive dedicated, non-duplicate questions as the curated bank grows. The repository now includes the final-gap, deep-gap, and deeper-gap batches; future additions must continue to be conceptually distinct.
+This file tracks topics that should receive dedicated, non-duplicate questions as the curated bank grows. Future additions must continue to be conceptually distinct.
 
-## Covered in the final gap batches
-
-- Binary/text conversion boundaries — E226-E227, A267-A268
-- Date-only versus time-only handling — E228
-- XML attributes — E230, A233
-- XML repeated elements — M226
-- XML attribute selectors — M227
-- XML namespace-qualified selectors — M228, A250
-- Module organization and imports — M229, A235
-- Short and out-of-range pagination windows — M230-M231, A232
-- Recursive tree transformations — A226
-- Recursive arbitrary-depth array traversal — A227
-- Currency minor-unit representation — A228
-- Currency-specific precision metadata — A229
-- Single-pass aggregation — A230, A236
-- Deterministic key collision avoidance — A231
-- XML mixed-content handling — A234
-- Reusable lookup/index construction for large payloads — A237
-
-## Covered in the deep-gap batch
+## Covered in the final/deep batches
 
 - Temporal type matrix — A238
-- Generic type parameters — A239
-- Type selection and metadata — A240
-- End-to-end streaming — A241
-- Tail recursion and stream-capable functions — A242-A243
-- Java InputStream behavior — A244
-- Java 17 POJO interoperability — A245
-- Explicit coercion utilities — A246
-- Dynamic, negative-index and key-value selector behavior — A247-A249
-- Explicit XML namespace construction — A250
-- DataWeave language-level compatibility — A251
-- Deferred output — A252
-- Result success/error handling — A253
-- Selector out-of-range behavior — A254
-- Nullable date coercion — A255
-- Null versus empty versus whitespace — A256
-- XML encoding configuration — A257
-- CSV streaming unit — A258
-- Component visibility — A259
+- Generic type parameters and type metadata — A239-A240
+- Streaming, tail recursion, stream-capable functions and deferred output — A241-A243, A252, A275
+- Java interoperability and less-common mappings — A244-A245, A269-A271, A308-A309
+- Explicit coercion and semantic types — A246, A272
+- Selector/navigation edge cases — A247-A249, A254
+- XML namespace/encoding/mixed-content behavior — A250, A257, A234
+- DataWeave language/system-property compatibility — A251, A276
+- Result/error contracts and diagnostics — A253, A343-A350
+- Multipart, crypto, URI, Base64 and specialized formats — A261-A286, A299-A322
+- Tree, Runtime, URL, Diff, binary and function-introspection capabilities — A287-A298
+- Runtime evaluation, dynamic readers/writers and execution configuration — A299-A342
+- Annotation/security/runtime privilege boundaries — A311-A322
+- Runtime data-format discovery and descriptor behavior — A311, A331, A348
+- Custom data-format registration — A351
+- Scoped DataWeave logging and runtime logging services — A352, A354
+- Dynamic `ReaderInput` contracts — A353
+- Structured `Position` diagnostics — A355
 
-## Covered in the deeper-gap batch
+## DataWeave 2.12 coverage
 
-- Multipart/form-data part construction and boundary/default-content-type behavior — A261-A262
-- HMAC generation and cryptographic sink validation — A263-A264
-- URI semantic typing and query parsing — A265-A266
-- Base64 binary round-trip — A267
-- DWB writer/runtime properties — A268
-- Java Optional mapping — A269
-- Java class metadata and Enum conversion — A270-A271
-- Semantic-type coercion for Key/Regex/Namespace — A272
-- DST-aware timezone conversion — A273
-- Period/calendar arithmetic — A274
-- Streaming constraints with ordering/aggregation — A275
-- DataWeave system-property-driven runtime behavior — A276
-
-## Final format/runtime/security coverage
-
-- Avro, YAML, Excel, NDJSON, Protobuf, Java Properties, flat-file, and DWB edge behavior — A277-A286, A301-A310, A316-A318
-- Tree, Runtime, URL, Diff, binary, and function-introspection capabilities — A287-A298
-- Dynamic runtime evaluation and Java metadata/writer behavior — A299-A310
-- Runtime data-format descriptors, dynamic readers/writers, MIME separation, URL-encoded forms, parser limits, schema-source behavior, design-time validation, annotation targets, untrusted code, and runtime privileges — A311-A322
-- Remaining `dw::Runtime` execution, source-location, property, version, and delay capabilities — A323-A330
-- Typed runtime result unions, runtime logging/result diagnostics, descriptor absence handling, explicit failure versus captured failure, and experimental runtime compatibility — A343-A350
-- Custom data-format registration, scoped DataWeave logging configuration, dynamic `ReaderInput`, custom runtime logging services, and structured `Position` diagnostics — A351-A355
+- Component descriptors and compiler ownership metadata — A356
+- `ComponentDescriptor`, `ComponentsDescriptor`, and `ModuleDescriptor` types — A357
+- Per-component language levels for embedded DataWeave engines — A358
+- `UNLIMITED_CONTEXT` precision and rounding metadata — A359
+- Scope visibility (`private`, `internal`, `@VisibleTo`) remains represented by A259 and the existing visibility coverage.
 
 ## Previously covered
 
@@ -86,29 +49,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 
 ## Remaining research rule
 
-The repository should not keep adding questions merely to increase the count. The documented research checklist is now substantially covered. Future additions should target a genuinely different DataWeave feature, input shape, edge case, business rule, runtime behavior, or performance/design trade-off. Examples of valid future depth include a new MIME format, a materially different XML schema shape, a new language-level feature, a distinct Java interoperability case, or a new streaming constraint.
-
-## Already represented — expand only with materially different scenarios
-
-- `do` scopes and local variables
-- `using` declarations and reusable local bindings
-- `update` operator for nested field changes
-- `match` with business branches
-- validation result aggregation
-- reconciliation with duplicate business keys
-- financial zero-denominator handling
-- polymorphic input normalization
-- XML namespace handling
-- multipart and binary boundaries
-- crypto/hash/HMAC boundaries
-- Java interoperability
-- temporal arithmetic and timezone conversion
-- streaming/deferred output
-- language-level/system-property compatibility
-- custom data-format registration
-- scoped DataWeave logging and runtime logging services
-- dynamic reader input contracts
-- structured source-position diagnostics
+The repository should not keep adding questions merely to increase the count. Future additions should target a genuinely different DataWeave feature, input shape, edge case, business rule, runtime behavior, or performance/design trade-off.
 
 ## Duplication rule
 
@@ -116,7 +57,7 @@ A new question is not considered unique merely because IDs, names, numbers, or b
 
 ## Verification rule
 
-Every new question must contain the complete transformation, concrete input, deterministic expected output, explanation, common mistake, and interview tip. Runtime correctness must not be claimed unless the expression has actually been executed in a compatible DataWeave runtime. Runtime-dependent error metadata and serialized line-ending details should be described rather than fabricated.
+Every new question should contain a complete transformation or concrete scenario, deterministic expected behavior, explanation, common mistake, and interview tip. Runtime correctness must not be claimed unless the expression has actually been executed in a compatible DataWeave runtime. Runtime-dependent error metadata and serialized line-ending details should be described rather than fabricated.
 
 ## Automated protection
 
