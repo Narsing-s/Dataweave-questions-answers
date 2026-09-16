@@ -1,0 +1,30 @@
+{
+  "name": "@narsing-s/dataweave-lab",
+  "version": "1.0.0",
+  "description": "DataWeave Lab learning library with 10,000 practice examples and an interactive browser explorer.",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "index.html",
+    "explorer.html",
+    "examples.html",
+    "lab.html",
+    "lab-v2.html",
+    "EASY",
+    "MEDIUM",
+    "ADVANCED",
+    "ARTICLE-INSPIRED",
+    "MASTERING-DATAWEAVE",
+    "dataset",
+    "docs",
+    "scripts",
+    "README.md",
+    "RELEASE.md",
+    "PACKAGE.md",
+    "VERSION",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
