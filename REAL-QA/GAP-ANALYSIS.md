@@ -6,7 +6,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 
 - Temporal type matrix — A238
 - Generic type parameters and type metadata — A239-A240
-- Streaming, tail recursion, stream-capable functions and deferred output — A241-A243, A252, A275
+- Streaming, tail recursion, stream-capable functions and deferred output — A241-A243, A252, A275, A369
 - Java interoperability and less-common mappings — A244-A245, A269-A271, A308-A309
 - Explicit coercion and semantic types — A246, A272
 - Selector/navigation edge cases — A247-A249, A254
@@ -22,6 +22,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Scoped DataWeave logging and runtime logging services — A352, A354
 - Dynamic `ReaderInput` contracts — A353
 - Structured `Position` diagnostics — A355
+- Cross-module overloaded-function dispatch — A368
+- Indexed XML reader behavior for very large text/CDATA nodes — A370
 
 ## DataWeave 2.12 coverage
 
@@ -34,6 +36,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Sibling-reference annotation identity in type metadata — A365
 - Self-referential Java-array scope resolution — A366
 - Cycle-aware recursive type-metadata resolution — A367
+- Deferred values consumed by `write` — A369
 
 ## Previously covered
 
