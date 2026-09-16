@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**630 curated questions:** 210 Easy + 210 Medium + 210 Advanced.
+**675 curated questions:** 225 Easy + 225 Medium + 225 Advanced.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -16,6 +16,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Easy E176-E200](./NEW-EASY-176-200.md)
 - [Easy E201-E205](./NEW-EASY-201-205.md)
 - [Easy E206-E210 — deep gaps](./DEEP-GAPS-EASY-206-210.md)
+- [Easy E211-E225](./NEW-EASY-211-225.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
@@ -27,6 +28,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Medium M176-M200](./NEW-MEDIUM-176-200.md)
 - [Medium M201-M205](./NEW-MEDIUM-201-205.md)
 - [Medium M206-M210 — deep gaps](./DEEP-GAPS-MEDIUM-206-210.md)
+- [Medium M211-M225](./NEW-MEDIUM-211-225.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
@@ -38,6 +40,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A176-A200](./NEW-ADVANCED-176-200.md)
 - [Advanced A201-A205](./NEW-ADVANCED-201-205.md)
 - [Advanced A206-A210 — deep gaps](./DEEP-GAPS-ADVANCED-206-210.md)
+- [Advanced A211-A225](./NEW-ADVANCED-211-225.md)
 
 ## Gap tracking
 
@@ -107,9 +110,9 @@ The curated bank progressively covers:
 - Regular-expression validation, scanning and capture extraction
 - Date/time transformations and type semantics
 - JSON/XML/CSV transformations, MIME types and namespaces
-- API request/response mappings
-- Error-response shaping and validation aggregation
-- Lookup and enrichment patterns
+- API request/response mappings and version normalization
+- Error-response shaping, `try`/fallback patterns and validation aggregation
+- Lookup/index and enrichment patterns
 - Financial/order/customer/banking scenarios
 - Reconciliation and snapshot comparison
 - Duplicate detection and deterministic duplicate resolution
@@ -117,6 +120,7 @@ The curated bank progressively covers:
 - Polymorphic input normalization
 - Pagination/windowing and boundary rules
 - Performance-aware reuse of derived collections
+- Typed reusable functions
 - Edge cases and interview challenges
 
 ## Verification note
