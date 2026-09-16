@@ -81,6 +81,13 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Trailing-zero numeric formatting and compatibility behavior — A409
 - Strict mixed-type `orderBy` comparison behavior — A410
 - Runtime compatibility-flag introspection with `evaluateCompatibilityFlag` — A411
+- Mule `vars` materialization pass for repeated-read null behavior — A412
+- XML DTD processing control and default-disabled behavior — A413
+- Coercion-exception verbosity and diagnostic metadata — A414
+- Exception-message display-length limits — A415
+- CPU watchdog execution-time protection — A416
+- Direct/off-heap versus heap buffering selection — A417
+- Pre-2.3 date subtraction compatibility behavior — A418
 
 ## Previously covered
 
