@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**615 curated questions:** 205 Easy + 205 Medium + 205 Advanced.
+**630 curated questions:** 210 Easy + 210 Medium + 210 Advanced.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -15,6 +15,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Easy E151-E175](./NEW-EASY-151-175.md)
 - [Easy E176-E200](./NEW-EASY-176-200.md)
 - [Easy E201-E205](./NEW-EASY-201-205.md)
+- [Easy E206-E210 — deep gaps](./DEEP-GAPS-EASY-206-210.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
@@ -25,6 +26,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Medium M151-M175](./NEW-MEDIUM-151-175.md)
 - [Medium M176-M200](./NEW-MEDIUM-176-200.md)
 - [Medium M201-M205](./NEW-MEDIUM-201-205.md)
+- [Medium M206-M210 — deep gaps](./DEEP-GAPS-MEDIUM-206-210.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
@@ -35,6 +37,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A151-A175](./NEW-ADVANCED-151-175.md)
 - [Advanced A176-A200](./NEW-ADVANCED-176-200.md)
 - [Advanced A201-A205](./NEW-ADVANCED-201-205.md)
+- [Advanced A206-A210 — deep gaps](./DEEP-GAPS-ADVANCED-206-210.md)
 
 ## Gap tracking
 
@@ -94,26 +97,28 @@ The curated bank progressively covers:
 - `reduce`, `groupBy`, `distinctBy`
 - `flatten`, `flatMap`
 - `orderBy`, `sizeOf`, `isEmpty`, `isBlank`
-- String manipulation
+- String manipulation and normalization
 - Number calculations and type casting
-- Null/default handling
+- Null/default handling and optional-value fallbacks
 - Conditional fields and expressions
 - Functions, lambdas and local scopes
 - `$`, `$$`, `$$$`
 - `do`, `using`, `update` and pattern matching
-- Regular-expression validation and extraction
-- Date/time transformations and timezone handling
-- JSON/XML/CSV transformations and namespaces
+- Regular-expression validation, scanning and capture extraction
+- Date/time transformations and type semantics
+- JSON/XML/CSV transformations, MIME types and namespaces
 - API request/response mappings
 - Error-response shaping and validation aggregation
 - Lookup and enrichment patterns
 - Financial/order/customer/banking scenarios
 - Reconciliation and snapshot comparison
 - Duplicate detection and deterministic duplicate resolution
-- Idempotency and audit transformations
+- Idempotency and deterministic business-key patterns
 - Polymorphic input normalization
+- Pagination/windowing and boundary rules
+- Performance-aware reuse of derived collections
 - Edge cases and interview challenges
 
 ## Verification note
 
-Static review can validate structure, required sections and obvious consistency. It cannot by itself prove that every DataWeave expression executes successfully on every Mule runtime. Runtime execution should be added to CI as the executable test suite grows.
+Static review can validate structure, required sections and obvious consistency. It cannot by itself prove that every DataWeave expression executes successfully on every Mule runtime. Runtime execution should be added to CI as the executable test suite grows. Questions that depend on runtime-specific serialized error metadata or line-ending representation intentionally describe those outputs without pretending they were runtime-verified.
