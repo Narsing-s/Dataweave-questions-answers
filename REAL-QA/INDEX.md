@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**693 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 18 final non-duplicate gap questions.
+**698 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final non-duplicate gap questions.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
