@@ -22,6 +22,8 @@ Each structured record contains:
 
 The 10,000-record bank is generated and structurally validated. Individual transformations should still be runtime-tested against the DataWeave/Mule runtime used in a real project. Hand-authored examples demonstrate the intended quality and learning style.
 
+The curated `REAL-QA` bank is maintained separately so interview and learning questions remain readable, intentionally authored, and conceptually distinct.
+
 ## 🌐 Interactive learning site
 
 Open `index.html` for the account page, then continue to **Explorer** after authentication.
@@ -60,6 +62,8 @@ The main explorer is `explorer.html` and supports:
 - [Easy Q&A](./EASY/README.md)
 - [Medium Q&A](./MEDIUM/README.md)
 - [Advanced Q&A](./ADVANCED/README.md)
+- [Curated real Q&A index](./REAL-QA/INDEX.md)
+- [Curated Q&A coverage matrix](./docs/REAL-QA-COVERAGE.md)
 - [All structured records](./dataset/questions-10000.json)
 - [Complete learning path](./docs/LEARNING-PATH.md)
 - [Interactive user guide](./docs/USER-GUIDE.md)
@@ -96,19 +100,24 @@ The main explorer is `explorer.html` and supports:
 16. JSON/XML/CSV mappings
 17. API request/response transformations
 18. Reusable functions and business rules
+19. `do` / `using` local scopes and conditional fields
 
 ### 🔴 Advanced — production-style practice
 
-19. Complex nested transformations
-20. Dynamic keys and object construction
-21. Dates, DateTime and business periods
-22. Null/empty/error edge cases
-23. Aggregations and normalization
-24. API metadata and error responses
-25. Database/file/MQ-oriented mappings
-26. Performance and maintainability considerations
-27. Interview coding and output-prediction problems
-28. Real-world MuleSoft scenarios
+20. Complex nested transformations
+21. Dynamic keys and object construction
+22. `update` and `match`
+23. Dates, DateTime, LocalDateTime and business periods
+24. Null/empty/error edge cases
+25. Aggregations, normalization and reconciliation
+26. API metadata, validation and error responses
+27. Database/file/MQ-oriented mappings
+28. XML namespaces and complex XML structures
+29. Regex extraction and validation
+30. Performance and maintainability considerations
+31. Idempotency, duplicate resolution and deterministic business keys
+32. Interview coding and output-prediction problems
+33. Real-world MuleSoft scenarios
 
 See [`docs/LEARNING-PATH.md`](./docs/LEARNING-PATH.md) for the complete beginner-to-advanced workflow.
 
@@ -117,9 +126,12 @@ See [`docs/LEARNING-PATH.md`](./docs/LEARNING-PATH.md) for the complete beginner
 ```bash
 python scripts/generate_10000.py
 python scripts/validate_examples.py
+python scripts/check-real-qa-duplicates.py
 ```
 
-The generated outputs include the structured dataset and readable Easy/Medium/Advanced Markdown banks. GitHub Actions also runs the generation/validation workflow.
+The generated outputs include the structured dataset and readable Easy/Medium/Advanced Markdown banks. GitHub Actions also runs repository validation and the curated Q&A duplicate check.
+
+The duplicate checker catches exact normalized question-title duplicates. It does not replace conceptual review; changing only names, IDs, numbers, or wording is still considered a duplicate when the underlying transformation objective is unchanged.
 
 ## 📦 Packaging and releases
 
@@ -143,6 +155,7 @@ The repository checks the structured bank for:
 - supported difficulty values
 - DataWeave script headers
 - readable Markdown banks for all three levels
+- exact normalized duplicate question titles in `REAL-QA`
 
 Static validation does **not** prove that every transformation executes successfully on every Mule/DataWeave runtime. See [`docs/QUALITY-AND-VERIFICATION.md`](./docs/QUALITY-AND-VERIFICATION.md) for the verification model and production-use checklist.
 
@@ -161,6 +174,7 @@ Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-ST
 ├── EASY/
 ├── MEDIUM/
 ├── ADVANCED/
+├── REAL-QA/
 ├── ARTICLE-INSPIRED/
 ├── MASTERING-DATAWEAVE/
 ├── dataset/
