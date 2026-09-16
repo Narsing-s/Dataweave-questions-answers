@@ -40,6 +40,9 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Consistent visibility across overloaded functions — A371
 - Intersections of unbound generic type parameters — A372
 - Optional-to-required object-field compatibility — A373
+- Version-aware overload dispatch with `@Since` — A374
+- Optional function-parameter metadata via `FunctionParam` — A375
+- Java output type representation via `com.mulesoft.dw.java.output_types_as_string` — A376
 
 ## Previously covered
 
