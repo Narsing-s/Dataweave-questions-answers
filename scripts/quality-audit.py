@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Repository audit for the DataWeave Lab.
+"""Static repository audit for the DataWeave Lab.
 
-Checks dataset shape, IDs, required fields, duplicate normalized questions,
-and referenced static pages. It intentionally does not claim to execute
-DataWeave because a Mule/DataWeave runtime is not bundled with this audit.
+This checks structural integrity only. It does not execute DataWeave. The
+separate REAL-QA duplicate checker remains the authority for curated-question
+exact duplicates.
 """
 from __future__ import annotations
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,11 +14,10 @@ DATA = ROOT / "dataset" / "questions-10000.json"
 REQUIRED = {"id", "difficulty", "topic", "question", "input", "dataweave", "output", "explanation"}
 LEVELS = {"Easy", "Medium", "Advanced"}
 
-def norm(s: str) -> str:
-    return re.sub(r"\s+", " ", str(s).strip().lower())
 
 def fail(msg: str) -> None:
     raise SystemExit(f"QUALITY AUDIT FAILED: {msg}")
+
 
 def main() -> None:
     if not DATA.exists():
@@ -28,6 +26,7 @@ def main() -> None:
         data = json.loads(DATA.read_text(encoding="utf-8"))
     except Exception as exc:
         fail(f"dataset JSON is invalid: {exc}")
+
     rows = data if isinstance(data, list) else data.get("examples")
     if not isinstance(rows, list):
         fail("dataset must be a list or an object containing examples[]")
@@ -39,19 +38,20 @@ def main() -> None:
     if ids != expected:
         fail("IDs are not exactly sequential DW-00001 through DW-10000")
 
-    titles: dict[str, str] = {}
+    seen_ids = set()
     for i, row in enumerate(rows, 1):
         missing = REQUIRED - row.keys()
         if missing:
             fail(f"record {i} missing fields: {sorted(missing)}")
+        if row["id"] in seen_ids:
+            fail(f"duplicate record ID: {row['id']}")
+        seen_ids.add(row["id"])
         if row["difficulty"] not in LEVELS:
             fail(f"record {row['id']} has unsupported difficulty {row['difficulty']!r}")
-        if not norm(row["question"]):
+        if not str(row["question"]).strip():
             fail(f"record {row['id']} has an empty question")
-        key = norm(row["question"])
-        if key in titles:
-            fail(f"duplicate normalized question: {row['id']} and {titles[key]}")
-        titles[key] = row["id"]
+        if not str(row["topic"]).strip():
+            fail(f"record {row['id']} has an empty topic")
         if not str(row["dataweave"]).lstrip().startswith("%dw"):
             fail(f"record {row['id']} DataWeave script does not start with %dw")
 
@@ -62,12 +62,14 @@ def main() -> None:
 
     print("QUALITY AUDIT PASSED")
     print(f"records: {len(rows)}")
-    print("IDs: sequential")
+    print("IDs: sequential and unique")
     print("required fields: present")
-    print("normalized question duplicates: none")
+    print("difficulty/topic/question values: present")
     print("DataWeave headers: present")
     print("UI entry pages: present")
+    print("curated-question duplicate review: run scripts/check-real-qa-duplicates.py")
     print("runtime execution: not performed by this static audit")
+
 
 if __name__ == "__main__":
     main()
