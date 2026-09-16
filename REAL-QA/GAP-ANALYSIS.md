@@ -106,6 +106,12 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - DataWeave recursion stack limits — A434
 - Java stack-trace depth — A435
 - DataWeave scheduler thread-pool sizing — A436
+- Multipart part default content type — A437
+- Message-logging debounce duration — A438
+- DataWeave telemetry configuration — A439
+- Cursor-close stack-trace tracking — A440
+- Per-script temporary-directory tracking — A441
+- Experimental failure input/script dumps — A442
 
 ## Previously covered
 
