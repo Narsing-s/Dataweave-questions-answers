@@ -44,6 +44,12 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Optional function-parameter metadata via `FunctionParam` — A375
 - Java output type representation via `com.mulesoft.dw.java.output_types_as_string` — A376
 
+## Current runtime/concurrency/format coverage
+
+- Binary-specific `isEmpty` overload and coercion boundary — A377
+- Concurrent access to `KeyValuePairs` inside lazy materialized objects — A378
+- `AvroReader` memory lifecycle in long-running flows — A379
+
 ## Previously covered
 
 - `try` and structured error values — E207
