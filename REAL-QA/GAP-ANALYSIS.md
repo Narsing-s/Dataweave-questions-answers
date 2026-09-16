@@ -57,6 +57,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Concurrent DataWeave module loading — A385
 - Java bean accessor discovery during Java interoperability — A386
 - Event Stream/SSE parsing and representation — A387
+- Java module builder/converter cache thread-safety livelock prevention — A388
+- Invalid/reversed range behavior and nullable range results — A389
 
 ## Previously covered
 
