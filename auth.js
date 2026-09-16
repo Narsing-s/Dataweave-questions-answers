@@ -12,7 +12,7 @@
 
   function logout() {
     localStorage.removeItem(KEY);
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
   }
 
   function greetingMailto(user) {
@@ -29,15 +29,19 @@
     return true;
   }
 
-  window.DataWeaveAuth = { getUser, saveUser, logout, greetingMailto, markFirstLogin };
-
-  document.addEventListener('DOMContentLoaded', () => {
+  function renderAccount(target = document) {
     const user = getUser();
-    document.querySelectorAll('[data-auth-user]').forEach(el => {
+    target.querySelectorAll('[data-auth-user]').forEach(el => {
       el.textContent = user ? user.name : 'Login';
+      el.title = user ? `${user.name} · ${user.email}` : 'Login';
     });
-    document.querySelectorAll('[data-logout]').forEach(el => {
-      el.addEventListener('click', e => { e.preventDefault(); logout(); });
+    target.querySelectorAll('[data-logout]').forEach(el => {
+      el.hidden = !user;
+      el.addEventListener('click', e => { e.preventDefault(); logout(); }, { once: true });
     });
-  });
+  }
+
+  window.DataWeaveAuth = { getUser, saveUser, logout, greetingMailto, markFirstLogin, renderAccount };
+
+  document.addEventListener('DOMContentLoaded', () => renderAccount());
 })();
