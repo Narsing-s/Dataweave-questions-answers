@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Generate dataset and readable question banks
-        run: python scripts/generate_10000.py
+      - name: Build dataset and readable question banks
+        run: python scripts/build_10000.py
 
       - name: Validate dataset and question files
         run: |
@@ -40,7 +40,10 @@ jobs:
               files=list(Path(folder).glob('questions-*.md'))
               assert files, f'No generated Q&A files in {folder}'
               assert all(f.stat().st_size > 0 for f in files)
-          print('Validated 10,000 records and readable Easy/Medium/Advanced Q&A files')
+          counts={d:sum(x['difficulty']==d for x in data['examples']) for d in ['Easy','Medium','Advanced']}
+          assert all(v > 0 for v in counts.values())
+          print('Validated 10,000 records:', counts)
+          print('Validated readable Easy/Medium/Advanced Q&A files')
           PY
 
       - name: Commit generated Q&A files
