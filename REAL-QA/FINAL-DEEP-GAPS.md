@@ -1,6 +1,6 @@
 # Final Deep DataWeave Gaps
 
-These questions cover language/runtime areas identified after the previous gap pass. They are intentionally different from ordinary map/filter/groupBy practice.
+These questions cover language/runtime areas identified after the previous gap pass. They are intentionally different from ordinary map/filter practice.
 
 ## A238 — Temporal type matrix
 
@@ -171,70 +171,80 @@ output application/json
 
 **Explanation:** The coercions module provides explicit helpers such as `toArray`, `toBoolean`, `toBinary`, `toDate`, and `toDateOrNull`. Explicit conversion is useful at integration boundaries.
 
-## A247 — Dynamic selector
+## A247 — XML collectionPath for streaming
 
-**Difficulty:** Medium
+**Difficulty:** Advanced
 
-**Input**
-```json
-{"customer":{"name":"Ravi","email":"ravi@example.com"},"field":"email"}
+**Question:** Why is `collectionPath` important when streaming a large XML document?
+
+**DataWeave**
+```dataweave
+%dw 2.0
+input payload application/xml streaming=true collectionPath="orders.order"
+output application/json
+---
+payload map (order) -> {id: order.id, amount: order.amount}
 ```
+
+**Expected result:** Each configured XML collection item can be processed as the stream's logical unit.
+
+**Explanation:** XML streaming differs from JSON-array streaming because the XML reader needs to know which collection in the document should be streamed. The configured collection path determines that unit.
+
+**Common mistake:** Assuming every XML node automatically becomes an independent streaming record.
+
+**Interview tip:** Streaming configuration is format-specific.
+
+## A248 — Lazy evaluation annotation
+
+**Difficulty:** Advanced
+
+**Question:** What design problem does the `@Lazy` annotation address in a reusable DataWeave function or declaration?
 
 **DataWeave**
 ```dataweave
 %dw 2.0
 output application/json
-var fieldName = payload.field
+import * from dw::core::Annotations
+@Lazy()
+var expensiveValue = (1 to 100000) reduce ((n, acc = 0) -> acc + n)
 ---
-{selected: payload.customer[fieldName]}
+{status: "created", value: expensiveValue}
 ```
 
-**Expected output**
-```json
-{"selected":"ravi@example.com"}
-```
+**Expected output:** An object containing `status` and the computed value when the lazy value is evaluated.
 
-**Explanation:** The field selected at runtime is different from the literal property `fieldName`.
+**Explanation:** Lazy evaluation concerns when a value is evaluated, not what value the transformation computes. It can matter when a reusable declaration is expensive and may not be needed by every execution path.
 
-## A248 — Negative array index
+**Common mistake:** Assuming `@Lazy` changes the result rather than evaluation timing.
 
-**Difficulty:** Easy
+## A249 — Deprecation and language-version annotations
+
+**Difficulty:** Advanced
+
+**Question:** How can DataWeave library authors communicate that a component is deprecated or tied to a particular language version?
 
 **DataWeave**
 ```dataweave
 %dw 2.0
 output application/json
+import * from dw::core::Annotations
+@Deprecated()
+fun oldCustomerId(id: String) = id
 ---
-{last: payload.items[-1]}
+{customerId: oldCustomerId("C100")}
 ```
 
-**Input:** `{"items":["A","B","C"]}`
+**Expected output:** `{"customerId":"C100"}`
 
-**Expected output:** `{"last":"C"}`
+**Explanation:** Annotations such as `@Deprecated` and version-oriented annotations communicate library/API lifecycle information. They are metadata and tooling/compatibility signals, not business transformations.
 
-**Explanation:** DataWeave supports negative indexes; `-1` selects the final array element.
-
-## A249 — Key-value selector
-
-**Difficulty:** Medium
-
-**DataWeave**
-```dataweave
-%dw 2.0
-output application/json
----
-{selectedPair: payload.&name}
-```
-
-**Input:** `{"id":"C1","name":"Ravi","status":"ACTIVE"}`
-
-**Expected output:** `{"selectedPair":{"name":"Ravi"}}`
-
-**Explanation:** `.&name` returns the key-value pair rather than only the scalar value returned by `.name`.
+**Common mistake:** Treating a deprecation annotation as a runtime replacement mechanism.
 
 ## A250 — Explicit XML namespace construction
 
 **Difficulty:** Medium
+
+**Question:** How can a transformation explicitly construct namespace-qualified XML output?
 
 **DataWeave**
 ```dataweave
@@ -381,18 +391,18 @@ output application/json
 
 Before declaring the repository completely exhaustive, inspect the existing bank for conceptual coverage of:
 
-1. Multipart/form-data and binary payload transformations.
-2. URI/URL construction and parsing.
-3. `dw::Crypto`, hashing, HMAC and secure transformation boundaries.
+1. Additional multipart/binary reader and writer properties.
+2. Additional URI construction/parsing cases beyond the covered boundary examples.
+3. Additional `dw::Crypto` algorithms and protocol-specific signature representations.
 4. Additional MIME reader/writer properties.
-5. Java generic types and object construction.
-6. Additional DataWeave annotations.
-7. `public`/`private`/`internal` visibility and component packaging.
-8. Version/language-level compatibility.
+5. Additional Java generic/object-construction cases.
+6. Additional DataWeave annotations and library-author metadata.
+7. `public`/`private`/`internal` visibility and component packaging depth.
+8. Additional version/language-level compatibility flags.
 9. Advanced regex and Unicode edge cases.
-10. DST and timezone conversion scenarios.
-11. `Period`, `TimeZone`, `LocalTime` and temporal arithmetic combinations.
-12. URI/Binary/Key/Regex/Namespace coercion matrices.
+10. More DST/timezone conversion scenarios.
+11. More `Period`, `TimeZone`, `LocalTime` and temporal arithmetic combinations.
+12. Additional URI/Binary/Key/Regex/Namespace coercion matrices.
 13. Streaming plus aggregation/sorting/grouping constraints.
 14. Advanced XML reader/writer and namespace serialization.
 15. Java InputStream lifecycle/repeatability.
