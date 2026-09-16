@@ -53,6 +53,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Multibyte character preservation across streaming reader boundaries — A381
 - Lazy evaluation strategy for `orderBy` criteria — A382
 - Unicode surrogate handling in `fromCharCode` — A383
+- Flat-file schema loading with nesting beyond the historical depth limit — A384
+- Concurrent DataWeave module loading — A385
+- Java bean accessor discovery during Java interoperability — A386
+- Event Stream/SSE parsing and representation — A387
 
 ## Previously covered
 
