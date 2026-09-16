@@ -48,16 +48,16 @@ The main explorer is `explorer.html` and supports:
 
 ## 📚 Read the questions directly in GitHub
 
-The question banks are published as Markdown files so you can study the actual questions without opening JSON or running a script.
-
 - [Easy Q&A](./EASY/README.md)
 - [Medium Q&A](./MEDIUM/README.md)
 - [Advanced Q&A](./ADVANCED/README.md)
 - [All structured records](./dataset/questions-10000.json)
 - [Complete learning path](./docs/LEARNING-PATH.md)
+- [Interactive user guide](./docs/USER-GUIDE.md)
 - [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
-
-Scripts are kept for regeneration and validation; they are not a replacement for the published question files.
+- [Release checklist](./docs/RELEASE-CHECKLIST.md)
+- [Package guide](./PACKAGE.md)
+- [Release readiness](./RELEASE.md)
 
 ## 🧭 Recommended learning path
 
@@ -100,54 +100,26 @@ Scripts are kept for regeneration and validation; they are not a replacement for
 
 See [`docs/LEARNING-PATH.md`](./docs/LEARNING-PATH.md) for the complete beginner-to-advanced workflow.
 
-## 🛠️ Regenerate the structured bank
+## 🛠️ Regenerate and validate
 
 ```bash
 python scripts/generate_10000.py
+python scripts/validate_examples.py
 ```
 
-Output:
+The generated outputs include the structured dataset and readable Easy/Medium/Advanced Markdown banks. GitHub Actions also runs the generation/validation workflow.
 
-```text
-dataset/questions-10000.json
-EASY/questions-*.md
-MEDIUM/questions-*.md
-ADVANCED/questions-*.md
-```
+## 📦 Packaging and releases
 
-GitHub Actions also runs the generation/validation workflow.
+Project version is stored in `VERSION`. Release history is tracked in `CHANGELOG.md`.
 
-## 📖 Example format
+The repository includes a repeatable GitHub Actions release workflow that validates the dataset, creates a versioned ZIP package, creates a SHA-256 checksum, and can publish a GitHub Release when a `vMAJOR.MINOR.PATCH` tag is pushed.
 
-```text
-DW-00001
-Difficulty: Easy
-Topic: Strings
+See:
 
-QUESTION
-How do you convert a string to uppercase?
-
-INPUT
-{"value":"DataWeave"}
-
-DATAWEAVE ANSWER
-%dw 2.0
-output application/json
----
-{ value: upper(payload.value) }
-
-EXPECTED OUTPUT
-{"value":"DATAWEAVE"}
-
-EXPLANATION
-DataWeave reads payload.value and applies upper() to convert the string to uppercase.
-
-COMMON MISTAKES
-Check null values and input types before applying the function.
-
-INTERVIEW TIP
-Explain the input-to-output change and what happens for null or unexpected input.
-```
+- [`PACKAGE.md`](./PACKAGE.md)
+- [`RELEASE.md`](./RELEASE.md)
+- [`docs/RELEASE-CHECKLIST.md`](./docs/RELEASE-CHECKLIST.md)
 
 ## 🧪 Quality rules
 
@@ -169,37 +141,34 @@ Static validation does **not** prove that every transformation executes successf
 ├── index.html
 ├── explorer.html
 ├── examples.html
+├── lab.html
+├── lab-v2.html
 ├── EASY/
-│   ├── README.md
-│   ├── 001-core-dataweave-fundamentals.md
-│   └── questions-*.md
 ├── MEDIUM/
-│   ├── README.md
-│   ├── 001-collections-and-objects.md
-│   └── questions-*.md
 ├── ADVANCED/
-│   ├── README.md
-│   ├── 001-production-transformations.md
-│   └── questions-*.md
+├── ARTICLE-INSPIRED/
+├── MASTERING-DATAWEAVE/
 ├── dataset/
-│   ├── examples.json
-│   └── questions-10000.json
 ├── docs/
-│   ├── LEARNING-PATH.md
-│   └── QUALITY-AND-VERIFICATION.md
 ├── scripts/
-│   ├── generate_10000.py
-│   └── validate_examples.py
-├── .github/workflows/
-│   ├── pages.yml
-│   └── generate-10000-dataset.yml
-└── README.md
+├── VERSION
+├── CHANGELOG.md
+├── PACKAGE.md
+├── RELEASE.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── CODE_OF_CONDUCT.md
+└── .github/workflows/
 ```
 
 ## 🤝 Contribution standard
 
-New curated questions should contain a meaningful problem, realistic input, valid DataWeave, deterministic expected output, a clear explanation, edge-case guidance, and interview value. Avoid changing only numbers/names while teaching the same concept repeatedly.
+New curated questions should contain a meaningful problem, realistic input, valid DataWeave, deterministic expected output, a clear explanation, edge-case guidance, and interview value. Avoid changing only numbers/names while teaching the same concept repeatedly. See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+
+## 🔐 Safety
+
+Use synthetic data only. Never commit credentials, tokens, private keys, production database strings, or real customer/account information. See [`SECURITY.md`](./SECURITY.md).
 
 ## License
 
-License details will be added when the project's contribution and redistribution policy is finalized.
+No license is declared yet. Until a license is added, normal copyright restrictions apply.
