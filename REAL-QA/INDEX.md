@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**525 curated questions:** 175 Easy + 175 Medium + 175 Advanced.
+**600 curated questions:** 200 Easy + 200 Medium + 200 Advanced.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -13,6 +13,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Easy E101-E125](./NEW-EASY-101-125.md)
 - [Easy E126-E150](./NEW-EASY-126-150.md)
 - [Easy E151-E175](./NEW-EASY-151-175.md)
+- [Easy E176-E200](./NEW-EASY-176-200.md)
 
 ### Medium
 - [Original Medium bank](./MEDIUM.md)
@@ -21,6 +22,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Medium M101-M125](./NEW-MEDIUM-101-125.md)
 - [Medium M126-M150](./NEW-MEDIUM-126-150.md)
 - [Medium M151-M175](./NEW-MEDIUM-151-175.md)
+- [Medium M176-M200](./NEW-MEDIUM-176-200.md)
 
 ### Advanced
 - [Original Advanced bank](./ADVANCED.md)
@@ -29,6 +31,7 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A101-A125](./NEW-ADVANCED-101-125.md)
 - [Advanced A126-A150](./NEW-ADVANCED-126-150.md)
 - [Advanced A151-A175](./NEW-ADVANCED-151-175.md)
+- [Advanced A176-A200](./NEW-ADVANCED-176-200.md)
 
 ## Learning order
 
@@ -39,7 +42,7 @@ Focus on selectors, arrays, objects, strings, conditions, defaults, basic filter
 Focus on grouping, deduplication, flattening, `flatMap`, object transformations, aggregation, conditional fields, lookups, dynamic projections, validation and practical API mappings.
 
 ### Advanced
-Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, validation and production-style contracts.
+Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, audit transformations, regex processing and production-style validation contracts.
 
 ## Required question format
 
@@ -71,6 +74,7 @@ Every curated question should contain:
 - Do not claim runtime validation unless the script has actually been executed in a compatible DataWeave/Mule runtime.
 - Prefer business scenarios over artificial function-only examples once fundamentals are covered.
 - Do not silently replace a real transformation with pseudocode.
+- New batches must be checked against existing question concepts and titles before being added; superficial renaming is not considered a new question.
 
 ## Coverage checklist
 
@@ -89,16 +93,18 @@ The curated bank progressively covers:
 - Conditional fields and expressions
 - Functions and lambdas
 - `$`, `$$`, `$$$`
-- Pattern matching
-- Date/time transformations
-- JSON/XML/CSV transformations
+- Pattern matching and regular expressions
+- Date/time transformations and timezone handling
+- JSON/XML/CSV transformations and namespaces
 - API request/response mappings
 - Error-response shaping
 - Lookup and enrichment patterns
 - Financial/order/customer/banking scenarios
 - Reconciliation and snapshot comparison
+- Duplicate detection and data-quality checks
 - Idempotency and audit transformations
 - Validation and production response envelopes
+- Polymorphic input normalization
 - Edge cases and interview challenges
 
 ## Verification note
