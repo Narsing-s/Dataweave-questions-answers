@@ -39,12 +39,10 @@ Each exercise should include: problem statement, input, expected output, solutio
 
 ## Important principle
 
-DataWeave is expression-oriented and functional. It does not use traditional `for`/`while` loop control; transformations commonly use functions such as `map`, `filter` and `reduce`. citeturn0search8turn0search4
+DataWeave is expression-oriented and functional. It does not use traditional `for`/`while` loop control; transformations commonly use functions such as `map`, `filter` and `reduce`.
 
-## Official references
+## Self-contained learning model
 
-- MuleSoft DataWeave Language Guide
-- MuleSoft DataWeave Quickstart
-- MuleSoft Core Function Reference
+This repository is designed to keep the learning material together in one place. Use the examples, function reference, practice sets, expected outputs, edge cases and interview notes in this repository as the study path.
 
-Use the official MuleSoft documentation for version-specific syntax and function behavior.
+Before using a transformation in a real application, verify its behavior in the exact DataWeave/Mule runtime and version used by that application.
