@@ -54,6 +54,11 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Generated library documentation templates and defaults — A454
 - Skipping Exchange documentation upload during Maven deployment — A455
 - Forked test-runner environment variables and system properties — A456
+- Custom generated documentation home page and Exchange favicon — A457
+- Independent generated-documentation deployment — A458
+- Forked test-runner command/JVM debugging and JVM argument configuration — A459
+- Consuming a published DataWeave library with Maven coordinates and classifier — A460
+- Scenario-specific reader properties for test inputs — A461
 
 ## Current runtime/concurrency/format/compatibility coverage
 
