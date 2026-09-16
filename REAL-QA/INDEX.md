@@ -4,7 +4,9 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**698 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final non-duplicate gap questions.
+**736 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final gap questions + 22 deep-gap questions + 16 deeper-gap questions.
+
+> `FINAL-DEEP-GAPS.md` contains A238-A259 (22 questions) plus a research checklist. `DEEPER-GAPS-261-276.md` contains 16 additional questions. A260 is a checklist item, not a question, so it is not counted.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -45,6 +47,10 @@ This index is the entry point for the curated question bank. The repository also
 - [Advanced A211-A225](./NEW-ADVANCED-211-225.md)
 - [Final gap coverage A226-A237](./FINAL-GAP-COVERAGE.md)
 
+### Deep and specialized gaps
+- [A238-A259 — Final deep gaps](./FINAL-DEEP-GAPS.md)
+- [A261-A276 — Deeper gaps](./DEEPER-GAPS-261-276.md)
+
 ## Gap tracking
 
 - [DataWeave Q&A Gap Analysis](./GAP-ANALYSIS.md) — tracks uncovered or underrepresented concepts so future additions remain meaningful rather than superficial duplicates.
@@ -59,6 +65,9 @@ Focus on grouping, deduplication, flattening, `flatMap`, object transformations,
 
 ### Advanced
 Focus on reconciliation, multi-level grouping, dynamic keys, nested indexes, reusable typed functions, polymorphic input, dates, XML/CSV, financial calculations, idempotency, audit transformations, regex processing, validation aggregation and production-style contracts.
+
+### Specialized/runtime
+Use the deep-gap batches for streaming, temporal types, Java interoperability, multipart, binary formats, cryptographic functions, URI semantics, coercion rules, timezone/DST behavior, temporal periods, streaming design constraints and DataWeave system properties.
 
 ## Required question format
 
@@ -111,9 +120,10 @@ The curated bank progressively covers:
 - `$`, `$$`, `$$$`
 - `do`, `using`, `update` and pattern matching
 - Regular-expression validation, scanning and capture extraction
-- Date/time transformations and type semantics
+- Date/time transformations, temporal types, timezone/DST and period semantics
 - JSON/XML/CSV transformations, MIME types and namespaces
-- Binary/text conversion boundaries
+- Multipart/form-data transformations
+- Binary/text conversion, Base64 and DWB format boundaries
 - API request/response mappings and version normalization
 - Error-response shaping, `try`/fallback patterns and validation aggregation
 - Lookup/index and enrichment patterns
@@ -124,11 +134,16 @@ The curated bank progressively covers:
 - Polymorphic input normalization
 - Pagination/windowing and boundary rules
 - Performance-aware reuse of derived collections
-- Typed reusable functions
-- Module organization and imports
-- Recursive transformations
+- Streaming and deferred-output constraints
+- Typed reusable functions, generics and type selection
+- Module organization, imports, visibility and component packaging
+- Recursive transformations and annotations
 - XML attributes, repeated elements, mixed content and namespace edge cases
 - Currency-specific precision and minor-unit handling
+- Java interoperability, POJOs, Optional, Enum, metadata and InputStream behavior
+- URI and semantic-type coercions
+- Crypto hashing, HMAC and cryptographic sink validation
+- System-property and language-level compatibility considerations
 - Edge cases and interview challenges
 
 ## Verification note
