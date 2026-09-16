@@ -32,6 +32,7 @@ This matrix prevents the curated bank from becoming a collection of repeated `ma
 - Module organization, imports, visibility and component packaging
 - DataWeave component descriptor generation and test-component packaging behavior
 - DataWeave Maven test configuration, coverage/reporting, documentation generation, deployment controls, and forked test-runner configuration
+- DataWeave Maven generated-doc customization, independent docs deployment, forked-JVM debugging, library dependency consumption, and scenario-specific reader configuration
 - Crypto hashing, HMAC and cryptographic sink validation
 - DataWeave system properties and language-level compatibility
 - Schema-driven type reuse from JSON Schema and Avro schema modules
