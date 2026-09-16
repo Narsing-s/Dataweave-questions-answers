@@ -20,11 +20,23 @@ Each structured record contains:
 - Common mistakes / edge cases
 - Interview tip
 
-The 10,000-record bank is generated and structurally validated. Individual transformations should still be runtime-tested against the DataWeave/Mule runtime used by a real project. Hand-authored examples demonstrate the intended quality and learning style.
+The 10,000-record bank is generated and structurally validated. Individual transformations should still be runtime-tested against the DataWeave/Mule runtime used in a real project. Hand-authored examples demonstrate the intended quality and learning style.
 
 ## 🌐 Interactive learning site
 
-Open `index.html` for the login page, then continue to **Explorer** to search and practice.
+Open `index.html` for the account page, then continue to **Explorer** after authentication.
+
+The browser-only learning account supports:
+
+- Unique username per browser
+- Unique email per browser
+- Username + email + password required for login
+- Duplicate account rejection
+- Account deletion after credential verification
+- Logout and session clearing
+- No account creation during login
+
+The account model is intentionally backend-free. It is suitable for a learning/demo site, not sensitive production authentication. See [`docs/ACCOUNT-SECURITY.md`](./docs/ACCOUNT-SECURITY.md).
 
 The main explorer is `explorer.html` and supports:
 
@@ -42,11 +54,6 @@ The main explorer is `explorer.html` and supports:
 - URL-based topic/level/search/challenge routing
 - Mobile responsive layout
 - Loading, empty and dataset-error states
-- Back-to-top control
-
-The learning site is designed to work as a **static product**: users can learn without a backend or mandatory account.
-
-`examples.html` is retained for backward compatibility with older links; the recommended entry point is `explorer.html`.
 
 ## 📚 Read the questions directly in GitHub
 
@@ -56,6 +63,7 @@ The learning site is designed to work as a **static product**: users can learn w
 - [All structured records](./dataset/questions-10000.json)
 - [Complete learning path](./docs/LEARNING-PATH.md)
 - [Interactive user guide](./docs/USER-GUIDE.md)
+- [Account security model](./docs/ACCOUNT-SECURITY.md)
 - [Question quality standard](./docs/QUESTION-STANDARD.md)
 - [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
 - [Product roadmap](./docs/PRODUCT-ROADMAP.md)
@@ -149,6 +157,7 @@ Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-ST
 ├── examples.html
 ├── lab.html
 ├── lab-v2.html
+├── auth.js
 ├── EASY/
 ├── MEDIUM/
 ├── ADVANCED/
