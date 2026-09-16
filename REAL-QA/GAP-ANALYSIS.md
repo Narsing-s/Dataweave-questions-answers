@@ -31,7 +31,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - `ComponentDescriptor`, `ComponentsDescriptor`, and `ModuleDescriptor` types — A357
 - Per-component language levels for embedded DataWeave engines — A358
 - `UNLIMITED_CONTEXT` precision and rounding metadata — A359
-- Scope visibility (`private`, `internal`, `@VisibleTo`) remains represented by A259 and the existing visibility coverage.
+- Scope visibility (`private`, `internal`, `@VisibleTo`) — A259
 - Repeated XML attribute selector result-shape preservation — A364
 - Sibling-reference annotation identity in type metadata — A365
 - Self-referential Java-array scope resolution — A366
@@ -45,7 +45,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Java output type representation via `com.mulesoft.dw.java.output_types_as_string` — A376
 - `internal` as a non-reserved identifier in current language levels — A407
 
-## Current runtime/concurrency/format coverage
+## Current runtime/concurrency/format/compatibility coverage
 
 - Binary-specific `isEmpty` overload and coercion boundary — A377
 - Concurrent access to `KeyValuePairs` inside lazy materialized objects — A378
@@ -79,6 +79,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Windows classloader resource resolution — A406
 - `NumberType`/`sizeOf` compatibility behavior — A408
 - Trailing-zero numeric formatting and compatibility behavior — A409
+- Strict mixed-type `orderBy` comparison behavior — A410
+- Runtime compatibility-flag introspection with `evaluateCompatibilityFlag` — A411
 
 ## Previously covered
 
