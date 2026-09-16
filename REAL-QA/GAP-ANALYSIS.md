@@ -66,7 +66,12 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Optional-type propagation through chained selectors — A394
 - Object-key subtraction type inference — A395
 - Lazy source loading during binary compilation — A396
-- Warning/error propagation across compiler phases — A397
+- Warning/error propagation across compilation phases — A397
+- Java module bean introspection cache lifecycle and memory-leak prevention — A398
+- Eager materialization of values for exception caching inside `try` — A399
+- Base-type validation without premature materialization — A400
+- Semantic tokens in the DataWeave Tooling API — A401
+- Type-check diagnostics for compiler subgraphs — A402
 
 ## Previously covered
 
