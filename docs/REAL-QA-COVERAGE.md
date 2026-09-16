@@ -4,48 +4,38 @@ This matrix prevents the curated bank from becoming a collection of repeated `ma
 
 ## Covered strongly
 
-- Script structure and selectors
-- Arrays and objects
-- `map`, `filter`, `mapObject`, `filterObject`
+- Script structure, selectors and navigation edge cases
+- Arrays, objects, keys, values, entries and dynamic keys
+- `map`, `filter`, `mapObject`, `filterObject`, `pluck`
 - `reduce`, `groupBy`, `distinctBy`, `flatten`, `flatMap`
-- `pluck`, keys, values and entries
-- Dynamic object keys
-- Null, missing and blank values
-- Type conversion and numeric calculations
-- Conditional fields and business rules
-- Functions, lambdas and local scope
-- `do`, `using`, `update`, `match`
-- Regex validation/extraction
-- JSON, XML and CSV transformations
-- Date/time scenarios and timezone handling
-- API request/response mappings
-- Error envelopes and validation aggregation
-- Lookup/enrichment patterns
-- Reconciliation and duplicate resolution
+- `orderBy`, aggregation and performance-aware reuse
+- Null, missing, blank and whitespace handling
+- Type conversion, coercion utilities and semantic types
+- Conditional fields, business rules and validation aggregation
+- Functions, lambdas, local scope, generics and typed reusable functions
+- `do`, `using`, `update`, `match`, recursion and relevant annotations
+- Regex validation/extraction and semantic Regex coercion
+- JSON, XML, CSV, multipart and DWB transformations
+- XML attributes, repeated elements, mixed content and namespaces
+- Date/time types, Period arithmetic, timezone conversion and DST concerns
+- Binary/text, Base64 and Java InputStream boundaries
+- Java POJOs, Optional, Enum, class metadata and Java 17 interoperability
+- URI semantics and URI/query transformation boundaries
+- API request/response mappings and version normalization
+- Error envelopes, `try`/fallback patterns and result success/error handling
+- Lookup/enrichment, reconciliation and duplicate resolution
 - Financial, banking, customer and order scenarios
-- Idempotency and audit patterns
+- Idempotency, audit patterns and deterministic business keys
 - Polymorphic input normalization
+- Pagination/windowing with explicit boundary rules
+- Streaming, stream-capable functions and deferred output constraints
+- Module organization, imports, visibility and component packaging
+- Crypto hashing, HMAC and cryptographic sink validation
+- DataWeave system properties and language-level compatibility
 
 ## Continue expanding carefully
 
-These areas need additional dedicated questions only when the transformation objective is genuinely different from existing material:
-
-1. `try` and structured error values
-2. `orElse` and optional-value fallback patterns
-3. `read`/`write` with explicit MIME types
-4. Binary/text conversion boundaries
-5. CSV quoting, escaping and header configuration
-6. XML attributes, repeated elements and mixed content
-7. XML namespace edge cases beyond basic namespace selection
-8. Date versus LocalDateTime versus DateTime versus Time semantics
-9. Regex `scan`/capture-group extraction versus validation
-10. Selector and navigation edge cases
-11. Large-payload performance and repeated-scan avoidance
-12. Typed reusable functions and module organization
-13. Advanced recursive transformations
-14. Pagination/windowing with explicit boundary rules
-15. Precision, rounding and currency-specific calculations
-16. Deterministic business-key generation
+Only add another question when the transformation objective is genuinely different from existing material. Potential future depth includes a materially different MIME format, advanced XML schema shapes, additional language-level features, distinct Java interoperability cases, or new runtime/design trade-offs.
 
 ## Question design rule
 
