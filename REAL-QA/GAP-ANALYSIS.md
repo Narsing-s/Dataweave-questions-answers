@@ -47,6 +47,14 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Production DataWeave component-descriptor generation and JAR packaging — A450
 - Test-source component association for `internal` helper access — A451
 
+## Maven testing and library-delivery coverage
+
+- DataWeave test coverage enablement and supported coverage formats — A452
+- Separation of HTML test reports from coverage generation — A453
+- Generated library documentation templates and defaults — A454
+- Skipping Exchange documentation upload during Maven deployment — A455
+- Forked test-runner environment variables and system properties — A456
+
 ## Current runtime/concurrency/format/compatibility coverage
 
 - Binary-specific `isEmpty` overload and coercion boundary — A377
