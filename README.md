@@ -1,10 +1,25 @@
 # DataWeave Lab — Questions, Answers & 10,000 Examples
 
-A practical MuleSoft DataWeave learning library built around one workflow: **question → input → DataWeave → exact expected output → clear explanation → common mistakes**.
+A practical MuleSoft DataWeave learning library built around one workflow:
 
-## 🚀 10,000-example practice bank
+**Question → Input → DataWeave Answer → Expected Output → Step-by-Step Explanation → Common Mistakes → Interview Tip**
 
-The repository now contains a deterministic generator for **exactly 10,000 structured DataWeave Q&A examples**. The generated dataset uses IDs `DW-00001` through `DW-10000` and covers beginner, intermediate, and advanced practice.
+## 🚀 10,000 complete Q&A examples
+
+The repository contains exactly **10,000 ordered DataWeave examples**, from `DW-00001` through `DW-10000`, organized across Beginner, Intermediate, and Advanced levels.
+
+Every question has an actual learning record—not just a folder name. Each record contains:
+
+- Question
+- Difficulty
+- Topic
+- Real input
+- Complete DataWeave 2.x answer
+- Exact expected output
+- Detailed explanation of what the expression does
+- Step-by-step explanation of how the result is produced
+- Common mistakes / edge cases
+- Interview tip
 
 Run locally:
 
@@ -12,60 +27,112 @@ Run locally:
 python scripts/generate_10000.py
 ```
 
-This creates:
+The generated dataset is written to:
 
 ```text
 dataset/questions-10000.json
 ```
 
-The GitHub Actions workflow also generates and validates the dataset automatically.
+## 📚 Learning levels
 
-## 📚 Coverage
+### 🟢 Beginner
+- DataWeave syntax
+- Payload and selectors
+- Strings
+- Numbers
+- Arrays
+- Objects
+- `map`
+- `filter`
+- Conditions
+- `default`
+- Type checks
+- Basic transformations
 
-- Fundamentals and object selectors
-- Strings and string functions
-- Arrays and collections
-- `map`, `filter`, and conditional transformations
-- Object functions
-- `mapObject` / `filterObject` concepts
-- Nested structures and collection operations
-- Null, default, and type handling
-- Numbers and calculations
-- Dates and DateTime patterns
-- JSON, XML, and CSV transformation patterns
-- API-response mappings
+### 🟡 Intermediate
+- Nested objects and arrays
+- Object transformations
+- Collection operations
+- Null handling
+- Type conversion
+- Reusable transformation patterns
+- API response mapping
+- Real MuleSoft mapping scenarios
+
+### 🔴 Advanced
+- Complex transformation patterns
+- Conditional business mappings
 - Real-world MuleSoft integration scenarios
-- Interview-style transformation practice
-- Common mistakes and edge-case guidance
+- Data normalization
+- API-oriented transformations
+- Edge cases and production considerations
+- Interview-focused problems
 
-## 📖 Example contract
+## 📖 Example format
 
-Every generated example contains:
+Every example follows this structure:
 
 ```text
-Example ID
-Difficulty
-Topic
-Question
-Input
-DataWeave
-Expected Output
-Plain-English Explanation
-Common Mistakes / Edge Cases
+DW-00001
+Difficulty: Beginner
+Topic: Strings
+
+QUESTION
+How do you convert a string to uppercase?
+
+INPUT
+{"value":"DataWeave"}
+
+DATAWEAVE ANSWER
+%dw 2.0
+output application/json
+---
+{ value: upper(payload.value) }
+
+EXPECTED OUTPUT
+{"value":"DATAWEAVE"}
+
+EXPLANATION
+What this teaches: upper converts the selected string to uppercase.
+
+How it works:
+1. DataWeave reads payload.value.
+2. upper() converts the characters to uppercase.
+3. The converted value is assigned to the output field.
+4. The resulting object is returned as JSON.
+
+COMMON MISTAKES
+Check null values and input types before applying the function.
+
+INTERVIEW TIP
+Explain the input-to-output change and what happens for null or unexpected input.
 ```
 
-## 🧪 Quality
+## 🔎 Example Explorer
 
-The repository validates the generated dataset for:
+`examples.html` loads the complete 10,000-question dataset and supports search/filtering by:
+
+- Question
+- DataWeave function
+- Topic
+- Beginner / Intermediate / Advanced
+- Input/output content
+
+Each result displays the **question, input, DataWeave answer, expected output, detailed explanation, common mistakes, and interview tip**.
+
+## 🧪 Quality checks
+
+GitHub Actions validates:
 
 - exactly 10,000 examples
 - sequential unique IDs
-- required fields
-- supported difficulty metadata
-- structured input/output/explanation fields
-- DataWeave 2.x script headers
+- required Q&A fields
+- difficulty metadata
+- explanation content
+- DataWeave 2.x headers
+- generated dataset structure
 
-The static validator is separate from runtime execution. A generated transformation should still be runtime-tested against the Mule/DataWeave version used by the target application before production use.
+Generated transformations should still be runtime-tested against the Mule/DataWeave version used by the target application before production use.
 
 ## 🏗️ Repository structure
 
@@ -74,24 +141,20 @@ The static validator is separate from runtime execution. A generated transformat
 ├── index.html
 ├── examples.html
 ├── dataset/
-│   ├── examples.json              # Curated starter examples
-│   └── questions-10000.json       # Generated 10,000-example bank
+│   ├── examples.json
+│   └── questions-10000.json
 ├── scripts/
-│   ├── generate_10000.py          # Deterministic dataset generator
-│   └── validate_examples.py       # Static quality checks
+│   ├── generate_10000.py
+│   └── validate_examples.py
 ├── .github/workflows/
 │   ├── pages.yml
 │   └── generate-10000-dataset.yml
 └── README.md
 ```
 
-## 🌐 Learning experience
-
-The homepage and Example Explorer are designed for quick practice: search by topic, difficulty, question, DataWeave function, or transformation pattern. The dataset format is also suitable for future AI-assisted learning and code-generation features.
-
 ## 🤝 Contribution standard
 
-New examples should be practical and verifiable. Avoid meaningless filler. Each example should have a unique ID, realistic input, exact output, readable DataWeave, a plain-English explanation, and useful edge-case guidance.
+New questions should contain a realistic problem, valid input, readable DataWeave, deterministic expected output, useful explanation, edge-case guidance, and interview value. Avoid meaningless filler or repeated questions with only superficial changes.
 
 ## 📚 Reference
 
