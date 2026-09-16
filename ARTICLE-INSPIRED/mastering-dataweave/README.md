@@ -1,13 +1,11 @@
 # Mastering DataWeave — Practice & Learning Path
 
-This section expands the skill areas covered by the public Medium article **“Mastering DataWeave: Solved Questions for Skill Enhancement”** by Debu Singh into an original, beginner-friendly learning path.
-
-> **Important:** This repository does not reproduce the article's original questions, inputs, outputs, or scripts verbatim. The exercises here are independently written practice problems covering the same broad concepts.
+This section provides an original, beginner-friendly learning path built around practical DataWeave transformation skills.
 
 ## What you will learn
 
 - XML element and attribute selectors
-- Strings and `dw::core::Strings`
+- Strings and string manipulation
 - substring extraction
 - `map`, `filter`, `groupBy`, `mapObject`, `pluck`, and `orderBy`
 - dynamic object keys
@@ -24,7 +22,7 @@ This section expands the skill areas covered by the public Medium article **“M
 
 1. Read `PRACTICE.md` without opening the answers.
 2. Write your own DataWeave solution.
-3. Run it in a MuleSoft/DataWeave runtime.
+3. Run it in the runtime/version used by your project.
 4. Compare with `ANSWERS.md`.
 5. Try the edge cases in `EDGE-CASES.md`.
 6. Explain each solution aloud as if answering an interview question.
@@ -34,11 +32,11 @@ This section expands the skill areas covered by the public Medium article **“M
 
 | File | Purpose |
 |---|---|
-| `PRACTICE.md` | 10 original challenge questions |
+| `PRACTICE.md` | Original challenge questions |
 | `ANSWERS.md` | Complete solutions with explanations |
 | `EDGE-CASES.md` | Negative tests and production-oriented cases |
 | `INTERVIEW.md` | Interview questions and model answers |
-| `CHEATSHEET.md` | Quick reference for the operators used |
+| `CHEATSHEET.md` | Quick reference for operators used |
 
 ## Skill map
 
@@ -55,8 +53,8 @@ This section expands the skill areas covered by the public Medium article **“M
 | Q9 | Date parsing, `orderBy` |
 | Q10 | pattern matching, recursion, `mapObject` |
 
-## Official learning resources
+## Repository-first learning
 
-Use the official MuleSoft DataWeave documentation and tutorials for syntax verification and deeper study. The official tutorial repository covers fundamentals, selectors, variables, functions, lambdas, and common functions such as `filter`, `groupBy`, `map`, `mapObject`, `pluck`, and `reduce`.
+The complete learning material is organized inside this repository. Start with the practice questions, attempt the transformations yourself, compare the answer, then work through the edge cases and interview questions.
 
-Reference article: Debu Singh, *Mastering DataWeave: Solved Questions for Skill Enhancement*, published December 30, 2024.
+For production work, verify transformations against the exact runtime and version used by the target application.
