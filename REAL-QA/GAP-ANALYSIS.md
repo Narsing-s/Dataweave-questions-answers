@@ -117,6 +117,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Maximum DataWeave output-file size — A445
 - Legacy value-selector first-occurrence compatibility — A446
 - Experimental dumper exception stack traces — A447
+- JSON Schema type reuse through `jsonschema!` — A448
+- Avro schema type reuse through `avroschema!` — A449
 
 ## Previously covered
 
