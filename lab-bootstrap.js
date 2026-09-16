@@ -1,0 +1,16 @@
+(() => {
+  const USER='dataweave-lab-user';
+  const ready=fn=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn,{once:true}):fn();
+  function load(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s)})}
+  function addStyles(){if(document.getElementById('lab-learning-ui'))return;const s=document.createElement('style');s.id='lab-learning-ui';s.textContent=`
+    .learning-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px solid #243652}
+    .learning-actions .btn.saved{border-color:#45e6c1;color:#45e6c1}
+    .learning-actions .btn.reviewed{border-color:#ffcc66;color:#ffcc66}
+    .lab-review-link{margin-left:auto}
+    @media(max-width:500px){.navin{justify-content:flex-start}.links{display:flex!important;overflow-x:auto;flex-wrap:nowrap;max-width:100%;padding:4px 0}.links>*{flex:0 0 auto}.lab-review-link{margin-left:0}}
+  `;document.head.appendChild(s)}
+  function gate(){try{const u=JSON.parse(localStorage.getItem(USER)||'null');if(!u){location.replace('index.html');return null}return u}catch(_){location.replace('index.html');return null}}
+  function addReviewLink(){const links=document.querySelector('.links');if(!links||links.querySelector('.lab-review-link'))return;const a=document.createElement('a');a.href='review.html';a.className='lab-review-link';a.textContent='Review';links.appendChild(a)}
+  function decorate(){if(!window.DataWeaveLearning)return;document.querySelectorAll('#list .card').forEach(card=>{if(card.querySelector('.learning-actions'))return;const meta=[...card.querySelectorAll('.pill')].map(x=>x.textContent.trim());const id=meta.find(x=>/^DW-\d+$/i.test(x));if(!id)return;const difficulty=meta[0]||'',topic=meta[1]||'';const row=document.createElement('div');row.className='learning-actions';const b=document.createElement('button');b.className='btn';const done=document.createElement('button');done.className='btn';const review=document.createElement('button');review.className='btn';const refresh=()=>{b.textContent=window.DataWeaveLearning.isBookmarked(id)?'★ Bookmarked':'☆ Bookmark';b.classList.toggle('saved',window.DataWeaveLearning.isBookmarked(id));const st=window.DataWeaveLearning.state();done.textContent=st.completed.includes(id)?'✓ Completed':'✓ Mark completed';done.classList.toggle('saved',st.completed.includes(id));review.textContent=st.wrong.includes(id)?'↺ Needs review':'⚠ Mark for review';review.classList.toggle('reviewed',st.wrong.includes(id))};b.onclick=()=>{window.DataWeaveLearning.toggleBookmark(id);refresh();toast('Bookmark updated')};done.onclick=()=>{window.DataWeaveLearning.mark(id,true,{difficulty,topic});refresh();toast('Marked completed')};review.onclick=()=>{window.DataWeaveLearning.mark(id,false,{difficulty,topic});refresh();toast('Added to review')};row.append(b,done,review);card.appendChild(row);refresh()})}
+  ready(async()=>{if(!gate())return;addStyles();try{if(!window.DataWeaveAuth)await load('auth.js');if(!window.DataWeaveLearning)await load('learning.js')}catch(_){return}addReviewLink();decorate();const list=document.getElementById('list');if(list)new MutationObserver(decorate).observe(list,{childList:true});window.addEventListener('storage',decorate)})
+})();
