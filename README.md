@@ -1,12 +1,12 @@
 # DataWeave Lab — Questions, Answers & 10,000 Examples
 
-A practical MuleSoft DataWeave learning library built around one workflow:
+A practical, open learning library for MuleSoft DataWeave developers built around one workflow:
 
 **Question → Input → DataWeave Answer → Expected Output → Explanation → Common Mistakes → Interview Tip**
 
 ## 🚀 What is included
 
-The repository contains an ordered **10,000-record DataWeave practice bank**, with IDs `DW-00001` through `DW-10000`, plus separately maintained readable examples in the Easy, Medium, and Advanced folders.
+The repository contains an ordered **10,000-record DataWeave practice bank**, with IDs `DW-00001` through `DW-10000`, plus separately maintained readable examples in Easy, Medium, and Advanced folders.
 
 Each structured record contains:
 
@@ -44,6 +44,8 @@ The main explorer is `explorer.html` and supports:
 - Loading, empty and dataset-error states
 - Back-to-top control
 
+The learning site is designed to work as a **static product**: users can learn without a backend or mandatory account.
+
 `examples.html` is retained for backward compatibility with older links; the recommended entry point is `explorer.html`.
 
 ## 📚 Read the questions directly in GitHub
@@ -54,10 +56,19 @@ The main explorer is `explorer.html` and supports:
 - [All structured records](./dataset/questions-10000.json)
 - [Complete learning path](./docs/LEARNING-PATH.md)
 - [Interactive user guide](./docs/USER-GUIDE.md)
+- [Question quality standard](./docs/QUESTION-STANDARD.md)
+- [Official DataWeave resources](./docs/OFFICIAL-RESOURCES.md)
 - [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
+- [Product roadmap](./docs/PRODUCT-ROADMAP.md)
 - [Release checklist](./docs/RELEASE-CHECKLIST.md)
 - [Package guide](./PACKAGE.md)
 - [Release readiness](./RELEASE.md)
+
+## 🔗 Official references
+
+This is an independent community learning project, not official MuleSoft documentation. For authoritative language behavior and version-specific details, use the [official DataWeave documentation](https://docs.mulesoft.com/dataweave/), [DataWeave Language Guide](https://docs.mulesoft.com/dataweave/latest/dataweave-language-guide), [DataWeave Cookbook](https://docs.mulesoft.com/dataweave/latest/dataweave-cookbook), and [DataWeave CLI](https://github.com/mulesoft/data-weave-cli).
+
+See [`docs/OFFICIAL-RESOURCES.md`](./docs/OFFICIAL-RESOURCES.md) for the full reference list.
 
 ## 🧭 Recommended learning path
 
@@ -134,6 +145,8 @@ The repository checks the structured bank for:
 
 Static validation does **not** prove that every transformation executes successfully on every Mule/DataWeave runtime. See [`docs/QUALITY-AND-VERIFICATION.md`](./docs/QUALITY-AND-VERIFICATION.md) for the verification model and production-use checklist.
 
+Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-STANDARD.md), including distinct concepts, reproducible input/output, edge cases, and honest runtime/version notes.
+
 ## 🏗️ Repository structure
 
 ```text
@@ -155,6 +168,7 @@ Static validation does **not** prove that every transformation executes successf
 ├── CHANGELOG.md
 ├── PACKAGE.md
 ├── RELEASE.md
+├── LICENSE
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── CODE_OF_CONDUCT.md
@@ -163,12 +177,12 @@ Static validation does **not** prove that every transformation executes successf
 
 ## 🤝 Contribution standard
 
-New curated questions should contain a meaningful problem, realistic input, valid DataWeave, deterministic expected output, a clear explanation, edge-case guidance, and interview value. Avoid changing only numbers/names while teaching the same concept repeatedly. See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+New curated questions should contain a meaningful problem, realistic synthetic input, valid DataWeave, deterministic expected output, a clear explanation, edge-case guidance, and interview value. Avoid changing only numbers/names while teaching the same concept repeatedly. See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## 🔐 Safety
 
 Use synthetic data only. Never commit credentials, tokens, private keys, production database strings, or real customer/account information. See [`SECURITY.md`](./SECURITY.md).
 
-## License
+## 📄 License
 
-No license is declared yet. Until a license is added, normal copyright restrictions apply.
+This project is licensed under the [MIT License](./LICENSE).
