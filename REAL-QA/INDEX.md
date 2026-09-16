@@ -4,7 +4,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**810 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final gap questions + 22 deep-gap questions + 16 deeper-gap questions + 10 additional format/runtime questions + 12 module/runtime gaps + 12 final runtime/format gaps + 12 final format/security/runtime gaps + 8 runtime gaps + 12 final runtime gaps + 8 final typed-runtime/compatibility gaps.
+**815 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final gap questions + 22 deep-gap questions + 16 deeper-gap questions + 10 additional format/runtime questions + 12 module/runtime gaps + 12 final runtime/format gaps + 12 final format/security/runtime gaps + 8 runtime gaps + 12 final runtime gaps + 8 final typed-runtime/compatibility gaps + 5 extension/logging/reader/diagnostic gaps.
 
 ### Deep and specialized gaps
 - [A238-A259 — Final deep gaps](./FINAL-DEEP-GAPS.md)
@@ -16,6 +16,7 @@ This index is the entry point for the curated question bank. The repository also
 - [A323-A330 — Runtime gaps](./FINAL-GAPS-323-330.md)
 - [A331-A342 — Final runtime/type/diagnostic gaps](./FINAL-GAPS-331-342.md)
 - [A343-A350 — Final typed-runtime/compatibility gaps](./FINAL-GAPS-343-350.md)
+- [A351-A355 — Extension/logging/reader/diagnostic gaps](./FINAL-GAPS-351-355.md)
 
 ## Gap tracking
 
@@ -23,7 +24,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Specialized/runtime coverage
 
-The deep batches cover streaming, temporal types, Java interoperability, multipart, binary formats, cryptographic functions, URI semantics, coercion rules, timezone/DST behavior, temporal periods, type introspection, annotations, visibility, system/environment integration, Avro, YAML, Excel, NDJSON, Protobuf, flat files, DataWeave system properties, Tree utilities, Runtime utilities, URL utilities, Diff, binary helpers, function-type introspection, runtime script evaluation, Java metadata/object construction, Java writer behavior, DWB indexing, NDJSON validation policy, Excel table/header/security settings, flat-file missing-value and multi-structure handling, less-common Java mappings, runtime data-format discovery, dynamic readers/writers, custom MIME separation, URL-encoded forms, Java Properties, YAML parser limits, Avro schema-source behavior, design-time type validation, annotation targets, untrusted execution, runtime privilege boundaries, runtime MIME descriptor lookup, explicit runtime failures, chained `try` fallbacks, complete runtime-property introspection, execution configuration, dynamic execution result contracts, structured execution failures, source-range diagnostics, typed runtime success/failure unions, runtime logging, descriptor absence handling, and experimental-runtime compatibility concerns.
+The deep batches cover streaming, temporal types, Java interoperability, multipart, binary formats, cryptographic functions, URI semantics, coercion rules, timezone/DST behavior, temporal periods, type introspection, annotations, visibility, system/environment integration, Avro, YAML, Excel, NDJSON, Protobuf, flat files, DataWeave system properties, Tree utilities, Runtime utilities, URL utilities, Diff, binary helpers, function-type introspection, runtime script evaluation, Java metadata/object construction, Java writer behavior, DWB indexing, NDJSON validation policy, Excel table/header/security settings, flat-file missing-value and multi-structure handling, less-common Java mappings, runtime data-format discovery, dynamic readers/writers, custom MIME separation, URL-encoded forms, Java Properties, YAML parser limits, Avro schema-source behavior, design-time type validation, annotation targets, untrusted execution, runtime privilege boundaries, runtime MIME descriptor lookup, explicit runtime failures, chained `try` fallbacks, complete runtime-property introspection, execution configuration, dynamic execution result contracts, structured execution failures, source-range diagnostics, typed runtime success/failure unions, runtime logging, descriptor absence handling, experimental-runtime compatibility concerns, custom data-format registration, scoped DataWeave logging configuration, dynamic `ReaderInput`, custom runtime logging services, and structured `Position` diagnostics.
 
 ## Quality rule
 
