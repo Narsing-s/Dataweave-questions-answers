@@ -8,8 +8,9 @@
 - Shareable question URLs
 - Static validation and GitHub Actions
 - Release packaging and checksums
-- Official-resource guide
+- Repository-owned learning guides and function references
 - Open-source contribution and security guidance
+- Login-first static learning experience
 
 ## Next product upgrades
 
@@ -39,6 +40,7 @@
 - Runtime-tested curated examples
 - Version tags for DataWeave/Mule compatibility
 - Coverage report by topic and difficulty
+- Curated question index with Easy/Medium/Advanced progression
 
 ### Product engineering
 
@@ -47,8 +49,8 @@
 - Browser smoke tests for every release
 - Better SEO metadata and social preview cards
 - Changelog-driven releases
-- Dependabot or equivalent dependency monitoring when dependencies are introduced
+- Dependency monitoring when dependencies are introduced
 
 ## Product principle
 
-The site should remain useful without an account or backend. Authentication is not required for learning. Any future user account feature should be optional and should not block access to the public learning library.
+The site should remain useful as a focused learning product. The repository owns the questions, explanations, examples, function references, edge cases and interview material. Login is a lightweight browser-only entry step and does not require a backend authentication service.
