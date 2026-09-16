@@ -37,6 +37,9 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Self-referential Java-array scope resolution — A366
 - Cycle-aware recursive type-metadata resolution — A367
 - Deferred values consumed by `write` — A369
+- Consistent visibility across overloaded functions — A371
+- Intersections of unbound generic type parameters — A372
+- Optional-to-required object-field compatibility — A373
 
 ## Previously covered
 
