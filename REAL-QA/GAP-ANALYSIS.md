@@ -43,6 +43,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Version-aware overload dispatch with `@Since` — A374
 - Optional function-parameter metadata via `FunctionParam` — A375
 - Java output type representation via `com.mulesoft.dw.java.output_types_as_string` — A376
+- `internal` as a non-reserved identifier in current language levels — A407
 
 ## Current runtime/concurrency/format coverage
 
@@ -76,6 +77,8 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Array range-selector performance on valid large ranges — A404
 - Syntax-version metadata in `TypeGraph` and `WeaveTypeResolution` — A405
 - Windows classloader resource resolution — A406
+- `NumberType`/`sizeOf` compatibility behavior — A408
+- Trailing-zero numeric formatting and compatibility behavior — A409
 
 ## Previously covered
 
