@@ -32,6 +32,7 @@ This matrix prevents the curated bank from becoming a collection of repeated `ma
 - Module organization, imports, visibility and component packaging
 - Crypto hashing, HMAC and cryptographic sink validation
 - DataWeave system properties and language-level compatibility
+- Schema-driven type reuse from JSON Schema and Avro schema modules
 
 ## Continue expanding carefully
 
