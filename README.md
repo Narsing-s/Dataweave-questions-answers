@@ -20,26 +20,31 @@ Each structured record contains:
 - Common mistakes / edge cases
 - Interview tip
 
-The 10,000-record bank is generated and validated structurally. Individual transformations should still be runtime-tested against the DataWeave/Mule runtime used by a real project. The repository also contains hand-authored examples intended to demonstrate the expected quality and learning style.
+The 10,000-record bank is generated and structurally validated. Individual transformations should still be runtime-tested against the DataWeave/Mule runtime used by a real project. Hand-authored examples demonstrate the intended quality and learning style.
 
 ## 🌐 Interactive learning site
 
 Open `index.html` for the landing page, then use **Explorer** to search and practice.
 
-The hardened explorer is `explorer.html` and supports:
+The main explorer is `explorer.html` and supports:
 
 - Easy / Medium / Advanced navigation
 - Topic buttons and topic dropdown
 - Full-text search across question, code, input, output and explanation
-- Pagination
+- 10 / 25 / 50 questions per page
+- Pagination with disabled edge controls
 - Random question
-- Copy DataWeave
+- Copy DataWeave with visual confirmation
 - Hide/show reference solutions
 - Practice-this challenge mode
-- Challenge mode with reference solution and expected output
-- URL-based topic/level/search filters so homepage cards can open directly into the correct view
+- Challenge mode with reference solution, output and interview tip
+- Shareable question links
+- URL-based topic/level/search/challenge routing
+- Mobile responsive layout
+- Loading, empty and dataset-error states
+- Back-to-top control
 
-`examples.html` remains available as the original interactive explorer implementation.
+`examples.html` is retained for backward compatibility with older links; the recommended entry point is `explorer.html`.
 
 ## 📚 Read the questions directly in GitHub
 
@@ -49,8 +54,10 @@ The question banks are published as Markdown files so you can study the actual q
 - [Medium Q&A](./MEDIUM/README.md)
 - [Advanced Q&A](./ADVANCED/README.md)
 - [All structured records](./dataset/questions-10000.json)
+- [Complete learning path](./docs/LEARNING-PATH.md)
+- [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
 
-Scripts are kept for regeneration/validation; they are not a replacement for the published question files.
+Scripts are kept for regeneration and validation; they are not a replacement for the published question files.
 
 ## 🧭 Recommended learning path
 
@@ -90,6 +97,8 @@ Scripts are kept for regeneration/validation; they are not a replacement for the
 26. Performance and maintainability considerations
 27. Interview coding and output-prediction problems
 28. Real-world MuleSoft scenarios
+
+See [`docs/LEARNING-PATH.md`](./docs/LEARNING-PATH.md) for the complete beginner-to-advanced workflow.
 
 ## 🛠️ Regenerate the structured bank
 
@@ -151,15 +160,15 @@ The repository checks the structured bank for:
 - DataWeave script headers
 - readable Markdown banks for all three levels
 
-Static validation does **not** prove that every transformation executes successfully on every Mule/DataWeave runtime. Runtime-sensitive examples must be tested against the target runtime before production use.
+Static validation does **not** prove that every transformation executes successfully on every Mule/DataWeave runtime. See [`docs/QUALITY-AND-VERIFICATION.md`](./docs/QUALITY-AND-VERIFICATION.md) for the verification model and production-use checklist.
 
 ## 🏗️ Repository structure
 
 ```text
 .
-├── index.html                         # Landing page
-├── explorer.html                      # Hardened interactive explorer
-├── examples.html                      # Original interactive explorer
+├── index.html
+├── explorer.html
+├── examples.html
 ├── EASY/
 │   ├── README.md
 │   ├── 001-core-dataweave-fundamentals.md
@@ -175,6 +184,9 @@ Static validation does **not** prove that every transformation executes successf
 ├── dataset/
 │   ├── examples.json
 │   └── questions-10000.json
+├── docs/
+│   ├── LEARNING-PATH.md
+│   └── QUALITY-AND-VERIFICATION.md
 ├── scripts/
 │   ├── generate_10000.py
 │   └── validate_examples.py
