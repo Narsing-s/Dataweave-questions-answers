@@ -88,6 +88,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - CPU watchdog execution-time protection — A416
 - Direct/off-heap versus heap buffering selection — A417
 - Pre-2.3 date subtraction compatibility behavior — A418
+- `default` operator exception-handling compatibility — A419
+- Java `java.sql.Date` to DataWeave temporal-type mapping — A420
+- Indexed Latin-1 XML reader compatibility — A421
+- Removal of shadowed implicit inputs — A422
 
 ## Previously covered
 
