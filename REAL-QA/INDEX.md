@@ -4,9 +4,9 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Current curated bank
 
-**758 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final gap questions + 22 deep-gap questions + 16 deeper-gap questions + 10 additional format/runtime questions + 12 final module/runtime gaps.
+**770 curated questions:** 225 Easy + 225 Medium + 225 Advanced + 23 final gap questions + 22 deep-gap questions + 16 deeper-gap questions + 10 additional format/runtime questions + 12 module/runtime gaps + 12 final runtime/format gaps.
 
-> `FINAL-DEEP-GAPS.md` contains A238-A259 (22 questions) plus a research checklist. `DEEPER-GAPS-261-276.md` contains 16 additional questions. A260 is a checklist item, not a question, so it is not counted. `ADDITIONAL-FORMATS-277-286.md` contains 10 additional distinct format/runtime questions. `FINAL-GAPS-287-298.md` contains 12 additional module/runtime questions.
+> `FINAL-DEEP-GAPS.md` contains A238-A259 (22 questions) plus a research checklist. `DEEPER-GAPS-261-276.md` contains 16 additional questions. A260 is a checklist item, not a question, so it is not counted. `ADDITIONAL-FORMATS-277-286.md` contains 10 additional distinct format/runtime questions. `FINAL-GAPS-287-298.md` contains 12 additional module/runtime questions. `FINAL-GAPS-299-310.md` contains 12 additional unique runtime/format questions.
 
 ### Easy
 - [Original Easy bank](./EASY.md)
@@ -52,6 +52,7 @@ This index is the entry point for the curated question bank. The repository also
 - [A261-A276 — Deeper gaps](./DEEPER-GAPS-261-276.md)
 - [A277-A286 — Additional formats/runtime](./ADDITIONAL-FORMATS-277-286.md)
 - [A287-A298 — Final module/runtime gaps](./FINAL-GAPS-287-298.md)
+- [A299-A310 — Final runtime/format gaps](./FINAL-GAPS-299-310.md)
 
 ## Gap tracking
 
@@ -59,7 +60,7 @@ This index is the entry point for the curated question bank. The repository also
 
 ## Specialized/runtime coverage
 
-The deep batches now cover streaming, temporal types, Java interoperability, multipart, binary formats, cryptographic functions, URI semantics, coercion rules, timezone/DST behavior, temporal periods, type introspection, annotations, visibility, system/environment integration, Avro, YAML, Excel, NDJSON, Protobuf, flat files, DataWeave system properties, Tree utilities, Runtime utilities, URL utilities, Diff, binary helpers and function-type introspection.
+The deep batches now cover streaming, temporal types, Java interoperability, multipart, binary formats, cryptographic functions, URI semantics, coercion rules, timezone/DST behavior, temporal periods, type introspection, annotations, visibility, system/environment integration, Avro, YAML, Excel, NDJSON, Protobuf, flat files, DataWeave system properties, Tree utilities, Runtime utilities, URL utilities, Diff, binary helpers, function-type introspection, runtime script evaluation, Java metadata/object construction, Java writer behavior, DWB indexing, NDJSON validation policy, Excel table/header/security settings, flat-file missing-value and multi-structure handling, and less-common Java mappings.
 
 ## Quality rule
 
