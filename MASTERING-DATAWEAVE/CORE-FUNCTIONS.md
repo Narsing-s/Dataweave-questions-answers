@@ -1,5 +1,7 @@
 # DataWeave Core Functions Reference
 
+A repository-owned quick reference for the most useful DataWeave transformation functions.
+
 | Function | Main use | Typical input | Typical output |
 |---|---|---|---|
 | `map` | Transform array items | Array | Array |
@@ -25,9 +27,9 @@
 | `write` | Serialize data | Any | String/Binary |
 | `log` | Debug an expression | Any | Same value |
 
-## map
+## `map`
 
-`map` iterates over an array and produces a new array. citeturn0search11
+`map` transforms every item in an array and returns a new array.
 
 ```dw
 %dw 2.0
@@ -39,9 +41,9 @@ payload map (item, index) -> {
 }
 ```
 
-## filter
+## `filter`
 
-`filter` keeps values for which the predicate returns `true`. If nothing matches, the result is an empty array. citeturn0search6
+`filter` keeps only array items for which the condition evaluates to `true`.
 
 ```dw
 %dw 2.0
@@ -50,9 +52,9 @@ output application/json
 payload filter ($.active == true)
 ```
 
-## mapObject
+## `mapObject`
 
-Use `mapObject` when the input is an object and you need to transform its key/value entries. citeturn0search1
+Use `mapObject` when the input is an object and its key/value entries need to be transformed.
 
 ```dw
 %dw 2.0
@@ -63,9 +65,9 @@ payload mapObject (value, key) -> {
 }
 ```
 
-## groupBy
+## `groupBy`
 
-`groupBy` creates an object whose keys are the grouping criteria and whose values contain the matching records. citeturn0search0
+`groupBy` creates groups using a calculated key.
 
 ```dw
 %dw 2.0
@@ -74,9 +76,9 @@ output application/json
 payload groupBy $.city
 ```
 
-## reduce
+## `reduce`
 
-`reduce` accumulates array elements into one result. An explicit accumulator is useful when the result needs a known initial type. citeturn0search2
+`reduce` accumulates array items into one result.
 
 ```dw
 %dw 2.0
@@ -87,12 +89,29 @@ payload reduce ((item, acc = 0) -> acc + item.amount)
 
 ## Choosing the function
 
-- Need one output record for every input record -> `map`
-- Need only matching records -> `filter`
-- Need to transform object keys/values -> `mapObject`
-- Need object values as an array -> `pluck`
-- Need groups -> `groupBy`
-- Need one accumulated result -> `reduce`
-- Need nested arrays flattened -> `flatten` / `flatMap`
+- One output item per array item → `map`
+- Keep only matching array items → `filter`
+- Transform object entries → `mapObject`
+- Convert object entries into an array → `pluck`
+- Create groups → `groupBy`
+- Accumulate into one result → `reduce`
+- Flatten nested arrays → `flatten` / `flatMap`
+- Sort records → `orderBy`
+- Remove duplicates → `distinctBy`
 
-Official MuleSoft Core documentation lists these and many additional functions. citeturn0search4
+## Edge-case checklist
+
+Before considering a transformation complete, test:
+
+1. Empty arrays
+2. Empty objects
+3. `null` values
+4. Missing fields
+5. Duplicate records
+6. Unexpected data types
+7. Blank strings
+8. Numeric strings versus numbers
+9. Nested arrays with different lengths
+10. Large collections where repeated lookups may become expensive
+
+For complete worked examples, see the Easy, Medium and Advanced question banks in this repository.
