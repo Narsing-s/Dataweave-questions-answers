@@ -6,7 +6,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 
 - Temporal type matrix — A238
 - Generic type parameters and type metadata — A239-A240
-- Streaming, tail recursion, stream-capable functions and deferred output — A241-A243, A252, A275, A369
+- Streaming, tail recursion, stream-capable functions and deferred output — A241-A243, A252, A275, A369, A381
 - Java interoperability and less-common mappings — A244-A245, A269-A271, A308-A309
 - Explicit coercion and semantic types — A246, A272
 - Selector/navigation edge cases — A247-A249, A254
@@ -49,6 +49,10 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Binary-specific `isEmpty` overload and coercion boundary — A377
 - Concurrent access to `KeyValuePairs` inside lazy materialized objects — A378
 - `AvroReader` memory lifecycle in long-running flows — A379
+- Single-variable function materialization — A380
+- Multibyte character preservation across streaming reader boundaries — A381
+- Lazy evaluation strategy for `orderBy` criteria — A382
+- Unicode surrogate handling in `fromCharCode` — A383
 
 ## Previously covered
 
