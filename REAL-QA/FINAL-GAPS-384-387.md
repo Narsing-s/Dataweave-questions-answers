@@ -116,4 +116,4 @@ The comment does not produce an event. An `id` field without a value is represen
 
 ## Source note
 
-These additions are based on MuleSoft's documented DataWeave release behavior. DataWeave 2.9 introduced Event Stream support; its maintenance releases also documented fixes for deeply nested flat-file schemas, concurrent module loading, and Java bean accessor handling. The Event Stream representation and MIME type are documented in the DataWeave Event Stream format reference. citeturn1search0turn1search1turn1search10
+These additions are based on MuleSoft's documented DataWeave release behavior. DataWeave 2.9 introduced Event Stream support; its maintenance releases also documented fixes for deeply nested flat-file schemas, concurrent module loading, and Java bean accessor handling. The Event Stream representation and MIME type are documented in the DataWeave Event Stream format reference.
