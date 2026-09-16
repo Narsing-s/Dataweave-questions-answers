@@ -6,20 +6,34 @@ A practical MuleSoft DataWeave learning library built around one workflow:
 
 ## 🚀 10,000 complete Q&A examples
 
-The repository contains exactly **10,000 ordered DataWeave examples**, from `DW-00001` through `DW-10000`, organized across Beginner, Intermediate, and Advanced levels.
+The repository contains exactly **10,000 ordered DataWeave examples**, from `DW-00001` through `DW-10000`, organized across Easy, Medium, and Advanced levels.
 
-Every question has an actual learning record—not just a folder name. Each record contains:
+Every question is intended to be a readable learning record—not just a folder name. Each record contains:
 
 - Question
 - Difficulty
 - Topic
 - Real input
 - Complete DataWeave 2.x answer
-- Exact expected output
-- Detailed explanation of what the expression does
-- Step-by-step explanation of how the result is produced
+- Expected output
+- Detailed explanation
 - Common mistakes / edge cases
 - Interview tip
+
+## 📚 Read the questions directly in GitHub
+
+The question banks are published as Markdown files so you can open and study the questions directly without opening JSON or running a script.
+
+- [Easy Q&A](./EASY/README.md)
+- [Medium Q&A](./MEDIUM/README.md)
+- [Advanced Q&A](./ADVANCED/README.md)
+- [All 10,000 structured records](./dataset/questions-10000.json)
+
+Each level is split into manageable Markdown files so GitHub remains fast and the questions are easy to browse.
+
+## 🛠️ Scripts
+
+Scripts are kept in the repository for regeneration and validation. They are **not a replacement for the published questions**.
 
 Run locally:
 
@@ -33,9 +47,15 @@ The generated dataset is written to:
 dataset/questions-10000.json
 ```
 
-## 📚 Learning levels
+and the readable question banks are written under:
 
-### 🟢 Beginner
+```text
+EASY/
+MEDIUM/
+ADVANCED/
+```
+
+## 🟢 Easy
 - DataWeave syntax
 - Payload and selectors
 - Strings
@@ -49,7 +69,7 @@ dataset/questions-10000.json
 - Type checks
 - Basic transformations
 
-### 🟡 Intermediate
+## 🟡 Medium
 - Nested objects and arrays
 - Object transformations
 - Collection operations
@@ -59,7 +79,7 @@ dataset/questions-10000.json
 - API response mapping
 - Real MuleSoft mapping scenarios
 
-### 🔴 Advanced
+## 🔴 Advanced
 - Complex transformation patterns
 - Conditional business mappings
 - Real-world MuleSoft integration scenarios
@@ -74,7 +94,7 @@ Every example follows this structure:
 
 ```text
 DW-00001
-Difficulty: Beginner
+Difficulty: Easy
 Topic: Strings
 
 QUESTION
@@ -93,13 +113,7 @@ EXPECTED OUTPUT
 {"value":"DATAWEAVE"}
 
 EXPLANATION
-What this teaches: upper converts the selected string to uppercase.
-
-How it works:
-1. DataWeave reads payload.value.
-2. upper() converts the characters to uppercase.
-3. The converted value is assigned to the output field.
-4. The resulting object is returned as JSON.
+DataWeave reads payload.value and applies upper() to convert the string to uppercase.
 
 COMMON MISTAKES
 Check null values and input types before applying the function.
@@ -110,27 +124,11 @@ Explain the input-to-output change and what happens for null or unexpected input
 
 ## 🔎 Example Explorer
 
-`examples.html` loads the complete 10,000-question dataset and supports search/filtering by:
-
-- Question
-- DataWeave function
-- Topic
-- Beginner / Intermediate / Advanced
-- Input/output content
-
-Each result displays the **question, input, DataWeave answer, expected output, detailed explanation, common mistakes, and interview tip**.
+`examples.html` loads the complete 10,000-question dataset and supports search/filtering by question, DataWeave function, topic, difficulty, and input/output content.
 
 ## 🧪 Quality checks
 
-GitHub Actions validates:
-
-- exactly 10,000 examples
-- sequential unique IDs
-- required Q&A fields
-- difficulty metadata
-- explanation content
-- DataWeave 2.x headers
-- generated dataset structure
+GitHub Actions validates the generated dataset and the presence of readable Easy/Medium/Advanced Markdown question banks.
 
 Generated transformations should still be runtime-tested against the Mule/DataWeave version used by the target application before production use.
 
@@ -140,6 +138,15 @@ Generated transformations should still be runtime-tested against the Mule/DataWe
 .
 ├── index.html
 ├── examples.html
+├── EASY/
+│   ├── README.md
+│   └── questions-*.md
+├── MEDIUM/
+│   ├── README.md
+│   └── questions-*.md
+├── ADVANCED/
+│   ├── README.md
+│   └── questions-*.md
 ├── dataset/
 │   ├── examples.json
 │   └── questions-10000.json
@@ -155,10 +162,6 @@ Generated transformations should still be runtime-tested against the Mule/DataWe
 ## 🤝 Contribution standard
 
 New questions should contain a realistic problem, valid input, readable DataWeave, deterministic expected output, useful explanation, edge-case guidance, and interview value. Avoid meaningless filler or repeated questions with only superficial changes.
-
-## 📚 Reference
-
-Use the official MuleSoft DataWeave language/reference documentation alongside this repository. DataWeave behavior can depend on the DataWeave language level and Mule runtime version.
 
 ## License
 
