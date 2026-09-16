@@ -60,6 +60,13 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - Java module builder/converter cache thread-safety livelock prevention — A388
 - Invalid/reversed range behavior and nullable range results — A389
 - DST-aware `atBeginningOfDay` offset resolution — A390
+- Reusable materialized Java values across executions — A391
+- Compiler precompilation without validation/type checking — A392
+- Top-level Avro `enum`, `map`, `union`, and `fixed` roots — A393
+- Optional-type propagation through chained selectors — A394
+- Object-key subtraction type inference — A395
+- Lazy source loading during binary compilation — A396
+- Warning/error propagation across compiler phases — A397
 
 ## Previously covered
 
