@@ -1,46 +1,46 @@
-# DataWeave Lab — Questions, Answers & 10,000+ Examples
+# DataWeave Lab — Questions, Answers & 10,000 Examples
 
-A beginner-friendly, practical MuleSoft DataWeave learning library built around one simple idea: **see the input, understand the transformation, and verify the output**.
+A practical MuleSoft DataWeave learning library built around one workflow: **question → input → DataWeave → exact expected output → clear explanation → common mistakes**.
 
-## 🚀 What is live now
+## 🚀 10,000-example practice bank
 
-- Interactive homepage in `index.html`
-- Searchable Example Explorer in `examples.html`
-- Structured dataset in `dataset/examples.json`
-- Starter set of 16 documented examples
-- Difficulty and topic metadata
-- Input → DataWeave → expected output → explanation → common mistakes
-- Dataset quality validator in `scripts/validate_examples.py`
-- GitHub Pages workflow in `.github/workflows/pages.yml`
+The repository now contains a deterministic generator for **exactly 10,000 structured DataWeave Q&A examples**. The generated dataset uses IDs `DW-00001` through `DW-10000` and covers beginner, intermediate, and advanced practice.
 
-The 10,000+ number is the **roadmap target**, not a claim that 10,000 examples are already populated. New examples should be added in validated batches rather than generated as unverified filler.
+Run locally:
 
-## 🎯 Learning path
+```bash
+python scripts/generate_10000.py
+```
 
-1. Fundamentals
-2. Strings
-3. Arrays
-4. Objects
-5. `map`, `filter`, `reduce`
-6. `mapObject`, `filterObject`
-7. `flatten`, `flatMap` and nested data
-8. Dates and DateTime
-9. Numbers and calculations
-10. Null and default handling
-11. JSON transformations
-12. XML transformations
-13. CSV transformations
-14. Database transformations
-15. API transformations
-16. MQ and file transformations
-17. Error handling
-18. Real-world MuleSoft scenarios
-19. Interview questions
-20. Advanced challenges
+This creates:
+
+```text
+dataset/questions-10000.json
+```
+
+The GitHub Actions workflow also generates and validates the dataset automatically.
+
+## 📚 Coverage
+
+- Fundamentals and object selectors
+- Strings and string functions
+- Arrays and collections
+- `map`, `filter`, and conditional transformations
+- Object functions
+- `mapObject` / `filterObject` concepts
+- Nested structures and collection operations
+- Null, default, and type handling
+- Numbers and calculations
+- Dates and DateTime patterns
+- JSON, XML, and CSV transformation patterns
+- API-response mappings
+- Real-world MuleSoft integration scenarios
+- Interview-style transformation practice
+- Common mistakes and edge-case guidance
 
 ## 📖 Example contract
 
-Every example should contain:
+Every generated example contains:
 
 ```text
 Example ID
@@ -54,54 +54,48 @@ Plain-English Explanation
 Common Mistakes / Edge Cases
 ```
 
-This makes the dataset suitable for humans, search, automated validation and future AI-assisted learning tools.
+## 🧪 Quality
 
-## 🧪 Quality rules
+The repository validates the generated dataset for:
 
-The repository separates **static quality checks** from **runtime validation**. The validator checks schema completeness, duplicate IDs, difficulty values and basic DataWeave headers. It does not pretend to execute DataWeave.
+- exactly 10,000 examples
+- sequential unique IDs
+- required fields
+- supported difficulty metadata
+- structured input/output/explanation fields
+- DataWeave 2.x script headers
 
-For runtime-sensitive examples, validate the script against the DataWeave language level used by the target Mule runtime. MuleSoft documents that DataWeave behavior can vary by language level and runtime version.
-
-Run the static validator with:
-
-```bash
-python scripts/validate_examples.py
-```
+The static validator is separate from runtime execution. A generated transformation should still be runtime-tested against the Mule/DataWeave version used by the target application before production use.
 
 ## 🏗️ Repository structure
 
 ```text
 .
-├── index.html                         # Modern landing page
-├── examples.html                      # Search/filter example explorer
+├── index.html
+├── examples.html
 ├── dataset/
-│   └── examples.json                  # Structured learning dataset
+│   ├── examples.json              # Curated starter examples
+│   └── questions-10000.json       # Generated 10,000-example bank
 ├── scripts/
-│   └── validate_examples.py           # Dataset quality checks
+│   ├── generate_10000.py          # Deterministic dataset generator
+│   └── validate_examples.py       # Static quality checks
 ├── .github/workflows/
-│   └── pages.yml                      # Automatic GitHub Pages deployment
+│   ├── pages.yml
+│   └── generate-10000-dataset.yml
 └── README.md
 ```
 
-## 🌐 Homepage
+## 🌐 Learning experience
 
-The repository includes an automatic GitHub Pages workflow. After GitHub Pages is enabled for the repository using **GitHub Actions** as the source, the site can be published at the repository's Pages URL.
+The homepage and Example Explorer are designed for quick practice: search by topic, difficulty, question, DataWeave function, or transformation pattern. The dataset format is also suitable for future AI-assisted learning and code-generation features.
 
 ## 🤝 Contribution standard
 
-Prefer small, realistic examples over artificially complicated transformations. Every new batch should:
+New examples should be practical and verifiable. Avoid meaningless filler. Each example should have a unique ID, realistic input, exact output, readable DataWeave, a plain-English explanation, and useful edge-case guidance.
 
-- use a unique ID
-- state the input and exact expected output
-- explain the transformation in plain English
-- include edge cases or common mistakes where useful
-- identify the difficulty and topic
-- avoid duplicate questions that teach the same thing
-- be runtime-validated before being described as verified
+## 📚 Reference
 
-## 📚 Official reference
-
-Use the MuleSoft DataWeave language guide and reference documentation alongside this repository. DataWeave scripts have a header and body, support functional transformations such as `map` and `filter`, and use modules for additional functions.
+Use the official MuleSoft DataWeave language/reference documentation alongside this repository. DataWeave behavior can depend on the DataWeave language level and Mule runtime version.
 
 ## License
 
