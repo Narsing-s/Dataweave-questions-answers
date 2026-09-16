@@ -5,6 +5,6 @@
   "license":"MIT",
   "private":false,
   "scripts":{"audit":"node scripts/site-audit.mjs"},
-  "files":["index.html","explorer.html","assistant.html","progress.html","review.html","practice-bank.html","examples.html","lab.html","lab-v2.html","auth.js","learning.js","service-worker.js","manifest.webmanifest","icon.svg","EASY","MEDIUM","ADVANCED","ARTICLE-INSPIRED","MASTERING-DATAWEAVE","dataset","docs","scripts","README.md","RELEASE.md","PACKAGE.md","VERSION","CHANGELOG.md"],
+  "files":["index.html","explorer.html","assistant.html","progress.html","review.html","practice-bank.html","examples.html","lab.html","lab-v2.html","auth.js","learning.js","lab-bootstrap.js","service-worker.js","manifest.webmanifest","icon.svg","EASY","MEDIUM","ADVANCED","ARTICLE-INSPIRED","MASTERING-DATAWEAVE","dataset","docs","scripts","README.md","RELEASE.md","PACKAGE.md","VERSION","CHANGELOG.md"],
   "publishConfig":{"registry":"https://npm.pkg.github.com"}
 }
