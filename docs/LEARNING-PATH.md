@@ -33,8 +33,9 @@ Move here after the Easy material feels comfortable.
 8. JSON/XML/CSV mappings
 9. API request and response mappings
 10. Reusable functions and business rules
-11. Null/empty edge cases
-12. Output-prediction questions
+11. `do` and `using` local scopes
+12. Conditional fields and null/empty edge cases
+13. Output-prediction questions
 
 Goal: solve common integration transformations independently.
 
@@ -44,18 +45,24 @@ Use this section for interviews and real integration scenarios.
 
 1. Complex nested transformations
 2. Dynamic object keys
-3. Dates and DateTime
-4. Aggregation and normalization
-5. Conditional business rules
-6. API metadata and error responses
-7. Database/file/MQ-oriented mappings
-8. Recursive and reusable patterns
-9. Performance and maintainability
-10. Debugging incorrect transformations
-11. Production edge cases
-12. Interview coding challenges
+3. `update` and nested structure changes
+4. `match` and multi-branch business rules
+5. Dates, DateTime, LocalDateTime, Time and timezone semantics
+6. Aggregation and normalization
+7. Validation aggregation and error-response shaping
+8. Database/file/MQ-oriented mappings
+9. Reconciliation, duplicate resolution and idempotency
+10. Polymorphic input normalization
+11. XML namespaces, attributes and complex XML structures
+12. Regex extraction and validation
+13. Performance and avoiding repeated scans
+14. Typed reusable functions and maintainability
+15. Pagination/windowing and boundary conditions
+16. Financial precision, rounding and production edge cases
+17. Debugging incorrect transformations
+18. Interview coding challenges
 
-Goal: explain not only what code works, but why it works, its edge cases, and how you would maintain it in a MuleSoft application.
+Goal: explain not only what code works, but why it works, its edge cases, performance implications, and how you would maintain it in a MuleSoft application.
 
 ## 4. Recommended practice loop
 
@@ -76,6 +83,8 @@ Read explanation
       ↓
 Check common mistakes
       ↓
+Test edge cases
+      ↓
 Rewrite without looking
 ```
 
@@ -84,6 +93,8 @@ Rewrite without looking
 - Use `index.html` as the starting page.
 - Use `explorer.html` for search, filtering, pagination and challenges.
 - Use the `EASY`, `MEDIUM`, and `ADVANCED` Markdown folders when you want to study directly in GitHub.
+- Use `REAL-QA/INDEX.md` for the curated interview/problem bank.
+- Use `docs/REAL-QA-COVERAGE.md` to understand what concepts are covered and what still needs deeper examples.
 - Use `dataset/questions-10000.json` when building another learning tool or application.
 - Use the scripts only for generation and validation; the published Markdown files are the human-readable learning material.
 
@@ -101,6 +112,8 @@ Debug broken DataWeave
 Explain null and edge-case behavior
       →
 Solve nested collection problems
+      →
+Solve reconciliation and validation problems
       →
 Solve production-style scenarios
       →
