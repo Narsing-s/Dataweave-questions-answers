@@ -24,6 +24,32 @@ The 10,000-record bank is generated and structurally validated. Individual trans
 
 The curated `REAL-QA` bank is maintained separately so interview and learning questions remain readable, intentionally authored, and conceptually distinct.
 
+## 🌍 Public launch & community
+
+This project is prepared for public use as an open-source DataWeave learning platform.
+
+- **Source and contributions:** GitHub
+- **Interactive site:** Vercel or GitHub Pages
+- **Versioned distribution:** GitHub Releases
+- **Community:** GitHub Issues/Discussions and developer communities
+
+See [`docs/PUBLIC-LAUNCH.md`](./docs/PUBLIC-LAUNCH.md) for the complete publishing, Vercel deployment, contribution, and community-distribution plan.
+
+### Deploy the interactive site on Vercel
+
+The project is a browser-based static site and the practice assistant loads `dataset/questions-10000.json` directly in the browser, so a backend is not required for the core learning experience.
+
+1. Open Vercel and choose **Add New → Project**.
+2. Import `Narsing-s/Dataweave-questions-answers` from GitHub.
+3. Keep the project root as the repository root.
+4. For this static repository, no framework-specific build command is required unless Vercel detects one.
+5. Deploy and verify `index.html`, `explorer.html`, `practice-bank.html`, and `assistant.html`.
+6. After deployment, connect the GitHub repository so future pushes can trigger deployments.
+
+Vercel's current workflow supports importing an existing Git repository from the project creation flow. citehttps://vercel.com/new
+
+**Important:** the dataset is structurally validated, not universally runtime-certified. The public site must not describe all 10,000 examples as runtime-verified.
+
 ## ⭐ Critical Interview Bank
 
 [`CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md`](./CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md) contains **60 curated critical questions**, deliberately mapped one-to-one to the complete 60-category plan. It focuses on interview-critical concepts, real MuleSoft usage, debugging, API transformations, performance, and output prediction without duplicating the larger practice banks.
@@ -110,6 +136,7 @@ The main explorer is `explorer.html` and supports:
 - [Question quality standard](./docs/QUESTION-STANDARD.md)
 - [Quality and verification guide](./docs/QUALITY-AND-VERIFICATION.md)
 - [Product roadmap](./docs/PRODUCT-ROADMAP.md)
+- [Public launch plan](./docs/PUBLIC-LAUNCH.md)
 - [Release checklist](./docs/RELEASE-CHECKLIST.md)
 - [Package guide](./PACKAGE.md)
 - [Release readiness](./RELEASE.md)
