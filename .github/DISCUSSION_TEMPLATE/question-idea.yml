@@ -1,0 +1,69 @@
+name: New DataWeave Question Idea
+description: Propose a genuinely new DataWeave concept or real-world transformation.
+title: "[Question Idea]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, search the existing question bank. Changing only names, numbers, IDs, business nouns, or wording does not make a new concept.
+  - type: input
+    id: concept
+    attributes:
+      label: DataWeave concept
+      description: What concept or production pattern should this teach?
+      placeholder: e.g. recursive tree transformation with dynamic object keys
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: Describe the transformation problem and why it is useful.
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Example input
+      description: Provide representative input data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+      description: Provide the deterministic expected result.
+    validations:
+      required: true
+  - type: textarea
+    id: uniqueness
+    attributes:
+      label: Why is this concept new?
+      description: Point to nearby existing concepts you checked and explain the meaningful difference.
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Suggested difficulty
+      options:
+        - Easy
+        - Medium
+        - Advanced
+        - Critical Interview
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed DataWeave solution
+      description: Optional. Include your solution if you have one.
+    validations:
+      required: false
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime verification
+      description: State the Mule/DataWeave version used for verification, or write Not runtime-tested.
+    validations:
+      required: true
