@@ -1,0 +1,40 @@
+name: Dataset or Learning Quality Report
+description: Report an incorrect answer, duplicate concept, broken example, or learning-site problem.
+title: "[Quality]: "
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - DataWeave answer/output
+        - Duplicate or overlapping question
+        - Dataset metadata
+        - Search or filtering
+        - Practice Bank or Explorer
+        - Documentation
+        - Deployment/site
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What did you find?
+      description: Include the question ID/path and describe the problem precisely.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or reproduction
+      description: Include input/output, runtime/version, screenshots, or reproducible steps when relevant. Do not include secrets or private data.
+    validations:
+      required: false
