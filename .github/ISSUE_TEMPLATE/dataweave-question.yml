@@ -1,0 +1,60 @@
+name: Propose a DataWeave Question
+description: Propose a substantial, conceptually new MuleSoft DataWeave question
+labels:
+  - dataweave
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search the repository before proposing a question. Renaming values, IDs, business nouns, or wording does not make an existing transformation concept new.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Provide the complete scenario or interview problem.
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input
+      description: Provide realistic synthetic input data.
+    validations:
+      required: true
+  - type: textarea
+    id: dataweave
+    attributes:
+      label: DataWeave solution
+      description: Provide the proposed DataWeave 2.x transformation.
+      render: dataweave
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: Give deterministic expected output.
+    validations:
+      required: true
+  - type: textarea
+    id: uniqueness
+    attributes:
+      label: Why is this concept new?
+      description: Explain which existing topics you checked and what materially differs.
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty
+      options:
+        - Advanced
+        - Critical
+    validations:
+      required: true
+  - type: textarea
+    id: runtime
+    attributes:
+      label: Runtime verification
+      description: If executed, state the Mule/DataWeave runtime version and result. Do not claim runtime verification if it was not executed.
