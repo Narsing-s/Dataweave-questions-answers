@@ -24,6 +24,14 @@ The 10,000-record bank is generated and structurally validated. Individual trans
 
 The curated `REAL-QA` bank is maintained separately so interview and learning questions remain readable, intentionally authored, and conceptually distinct.
 
+## ⭐ Critical Interview Bank
+
+[`CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md`](./CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md) contains **60 curated critical questions**, deliberately mapped one-to-one to the complete 60-category plan. It focuses on interview-critical concepts, real MuleSoft usage, debugging, API transformations, performance, and output prediction without duplicating the larger practice banks.
+
+### The 60-category coverage
+
+1. DataWeave Fundamentals · 2. Variables and Expressions · 3. Strings · 4. Numbers · 5. Boolean Logic · 6. Arrays · 7. Objects · 8. `map` · 9. `mapObject` · 10. `filter` · 11. `filterObject` · 12. `reduce` · 13. `groupBy` · 14. `orderBy` · 15. `distinctBy` · 16. `pluck` · 17. `some` · 18. `every` · 19. `find` · 20. `findIndex` · 21. `flatten` · 22. `flatMap` · 23. `joinBy` · 24. `splitBy` · 25. `replace` · 26. Regular Expressions · 27. Dates · 28. DateTime · 29. Time · 30. Number Aggregation · 31. `if/else` · 32. `match` · 33. `default` · 34. Null Handling · 35. Type Coercion · 36. Functions · 37. Custom Functions · 38. Lambda Functions · 39. Variables and Scope · 40. Modules · 41. Selectors · 42. Conditional Selectors · 43. Dynamic Selectors · 44. XML Transformation · 45. JSON Transformation · 46. CSV Transformation · 47. Java/Java-like Data · 48. Error Handling · 49. Real-world API Transformations · 50. MuleSoft Interview Questions · 51. Scenario-based Questions · 52. Debugging Questions · 53. Output-prediction Questions · 54. Easy Coding Problems · 55. Medium Coding Problems · 56. Advanced Coding Problems · 57. Production-style Transformations · 58. Performance/Optimization · 59. DataWeave 2.x Interview Questions · 60. Certification-style Practice Questions.
+
 ## 🌐 Interactive learning site
 
 Open `index.html` for the account page, then continue to **Explorer** after authentication.
@@ -84,6 +92,7 @@ The main explorer is `explorer.html` and supports:
 
 ## 📚 Read and learn directly in GitHub
 
+- [Critical 60 Interview Q&A](./CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md)
 - [10,000 Practice Bank UI](./practice-bank.html)
 - [Practice Assistant](./assistant.html)
 - [Easy Q&A](./EASY/README.md)
@@ -210,6 +219,7 @@ Curated questions should follow [`docs/QUESTION-STANDARD.md`](./docs/QUESTION-ST
 ├── MEDIUM/
 ├── ADVANCED/
 ├── REAL-QA/
+├── CRITICAL-INTERVIEW/
 ├── ARTICLE-INSPIRED/
 ├── MASTERING-DATAWEAVE/
 ├── dataset/
