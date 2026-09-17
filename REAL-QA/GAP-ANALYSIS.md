@@ -135,6 +135,7 @@ This file tracks topics that should receive dedicated, non-duplicate questions a
 - JSON Schema type reuse through `jsonschema!` — A448
 - Avro schema type reuse through `avroschema!` — A449
 - Mapping Editor API XML attribute representation and expression-model integrity — A498
+- DataWeave parsing/compilation memory footprint versus parser-cache, materialization, reader, and payload memory — A499
 
 ## Previously covered
 
