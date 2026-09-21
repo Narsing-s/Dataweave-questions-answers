@@ -79,6 +79,10 @@ Vercel's current workflow supports importing an existing Git repository from the
 
 **Important:** the dataset is structurally validated, not universally runtime-certified. The public site must not describe all 10,000 examples as runtime-verified.
 
+## 📘 Normal DataWeave Practice
+
+[`REAL-QA/NORMAL-BASICS-001-020.md`](./REAL-QA/NORMAL-BASICS-001-020.md) adds **20 straightforward DataWeave questions and answers** for everyday practice. The set covers arithmetic, object mapping, selectors, filtering, conditionals, defaults, Boolean expressions, aggregation, dynamic keys, and reusable functions.
+
 ## ⭐ Critical Interview Bank
 
 [`CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md`](./CRITICAL-INTERVIEW/DATAWEAVE-CRITICAL-60.md) contains **60 curated critical questions**, deliberately mapped one-to-one to the complete 60-category plan. It focuses on interview-critical concepts, real MuleSoft usage, debugging, API transformations, performance, and output prediction without duplicating the larger practice banks.
