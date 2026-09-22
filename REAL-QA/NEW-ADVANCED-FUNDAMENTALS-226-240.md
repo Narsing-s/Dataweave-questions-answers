@@ -513,9 +513,11 @@ payload.accounts
 import * from dw::core::Strings
 output application/json
 ---
-payload.codes map ((code) ->
-  if (code == null) null else upper(trim(code))
-)
+{
+  codes: payload.codes map ((code) ->
+    if (code == null) null else upper(trim(code))
+  )
+}
 ~~~
 
 **Expected Output**
