@@ -59,6 +59,8 @@ This project is prepared for public use as an open-source DataWeave learning pla
 
 See [`docs/PUBLIC-LAUNCH.md`](./docs/PUBLIC-LAUNCH.md) for the complete publishing, Vercel deployment, contribution, and community-distribution plan.
 
+- **Practice guide:** [`docs/DATAWEAVE-PRACTICE-MADE-EASY.md`](./docs/DATAWEAVE-PRACTICE-MADE-EASY.md) — a Medium-style, repository-first guide with solved DataWeave examples and a recommended Easy → Medium → Advanced learning path.
+
 - **Blogger publishing:** [`blogger/README.md`](./blogger/README.md) — ready-to-paste public DataWeave Q&A widget for Blogger.
 
 ### 🤝 Want to contribute?
