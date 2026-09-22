@@ -63,6 +63,8 @@ See [`docs/PUBLIC-LAUNCH.md`](./docs/PUBLIC-LAUNCH.md) for the complete publishi
 
 - **Blogger publishing:** [`blogger/README.md`](./blogger/README.md) — ready-to-paste public DataWeave Q&A widget for Blogger.
 
+- **Article publishing:** [`articles/index.html`](./articles/index.html) — Blogger-style, shareable article pages automatically included in the GitHub Pages deployment. Add a new HTML article under `articles/`, update the index, and push to `main`.
+
 ### 🤝 Want to contribute?
 
 Contributions are welcome, especially from MuleSoft and DataWeave developers who can bring real integration, interview, debugging, performance, and production experience.
