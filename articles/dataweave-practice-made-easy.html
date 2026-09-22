@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DataWeave Practice Made Easy: Solved Questions for Skill Building</title>
+<meta name="description" content="A practical DataWeave practice guide with solved questions, input, DataWeave logic, expected output, explanations and an Easy to Advanced learning path.">
+<link rel="canonical" href="/articles/dataweave-practice-made-easy.html">
+<style>
+:root{--bg:#07111f;--panel:#0d192b;--line:#263b5a;--text:#eef6ff;--muted:#a9b9cf;--accent:#45e6c1;--code:#050b14}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#06101d,#0a1628 55%,#07111f);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:920px;margin:auto;padding:30px 20px 70px}a{color:var(--accent)}header{padding:30px 0 35px;border-bottom:1px solid var(--line)}.badge{display:inline-block;border:1px solid #2b6670;border-radius:999px;padding:6px 11px;color:#aeeedd;background:#0d2732;font-size:12px;font-weight:800}.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:15px 0}.hero p{color:var(--muted);font-size:18px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;font-weight:800;background:var(--panel)}.btn.primary{background:var(--accent);color:#06131b;border-color:var(--accent)}h2{margin-top:45px;font-size:30px}h3{margin-top:30px}section{margin-top:30px}.card{background:linear-gradient(145deg,#0f1d32,#0b1728);border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}.label{font-size:11px;font-weight:900;letter-spacing:.08em;color:#9eacc4;margin:16px 0 6px}pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}code{background:#122139;padding:2px 5px;border-radius:5px}li{margin:6px 0}.note{border-left:4px solid var(--accent);padding:12px 16px;background:#0d2732;border-radius:8px;color:#d8f8ef}footer{margin-top:55px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted)}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero">
+<span class="badge">OPEN SOURCE · DATAWEAVE 2.x · NO LOGIN</span>
+<h1>DataWeave Practice Made Easy: Solved Questions for Skill Building</h1>
+<p>Learn DataWeave through the transformation that matters: <strong>input → logic → output</strong>. This original guide introduces the practice approach used by the DataWeave Questions &amp; Answers repository.</p>
+<div class="actions"><a class="btn primary" href="../index.html">Open Practice Lab</a><a class="btn" href="https://github.com/Narsing-s/Dataweave-questions-answers" target="_blank" rel="noopener">GitHub Repository</a><a class="btn" href="https://mulenarsi-dataweave.blogspot.com/" target="_blank" rel="noopener">MuleNarsi Blog</a></div>
+</header>
+
+<div class="note">Individual DataWeave scripts should be runtime-tested against the exact Mule/DataWeave version used by your application. The repository distinguishes structured validation from universal runtime certification.</div>
+
+<h2>What makes this repository useful?</h2>
+<ul>
+<li>Easy → Medium → Advanced progression</li>
+<li>Practical JSON, XML, CSV, nested-data, date, string, number, array and object transformations</li>
+<li>Input, DataWeave, expected output, explanation, common mistakes and interview guidance</li>
+<li>Interview and certification-style practice</li>
+<li>Real-world API transformation scenarios</li>
+<li>Large searchable practice bank and browser-based learning tools</li>
+<li>A strict no-duplicate rule: changing names or values does not create a new concept</li>
+</ul>
+
+<h2>10 Solved Practice Questions</h2>
+
+<div class="card"><h3>1. Transform an array of employee records</h3>
+<p><strong>Question:</strong> Convert employee records into an API-friendly structure containing the employee name and birth year.</p>
+<div class="label">INPUT</div><pre>[{"name":"John","age":25},{"name":"Alice","age":30}]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload map (employee) -> {
+  fullName: employee.name,
+  birthYear: now().year - employee.age
+}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>[{"fullName":"John","birthYear":2001},{"fullName":"Alice","birthYear":1996}]</pre>
+<p><strong>Learn:</strong> <code>map</code> transforms every item in an array. Use <code>mapObject</code> for object entries.</p></div>
+
+<div class="card"><h3>2. Filter records before transforming them</h3>
+<p><strong>Question:</strong> Return only active employees and expose their names and departments.</p>
+<div class="label">INPUT</div><pre>[{"name":"Ravi","active":true,"department":"IT"},{"name":"Meena","active":false,"department":"HR"},{"name":"Arun","active":true,"department":"Finance"}]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload
+  filter ((employee) -> employee.active)
+  map ((employee) -> {
+    name: employee.name,
+    department: employee.department
+  })</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>[{"name":"Ravi","department":"IT"},{"name":"Arun","department":"Finance"}]</pre>
+<p><strong>Pattern:</strong> filter first → transform second.</p></div>
+
+<div class="card"><h3>3. Remove duplicate business records</h3>
+<p><strong>Question:</strong> Keep one customer record for each customer ID.</p>
+<div class="label">INPUT</div><pre>[{"id":101,"name":"Asha"},{"id":102,"name":"Vijay"},{"id":101,"name":"Asha"}]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload distinctBy $.id</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>[{"id":101,"name":"Asha"},{"id":102,"name":"Vijay"}]</pre>
+<p><strong>Learn:</strong> Identify the business key before deciding what constitutes a duplicate.</p></div>
+
+<div class="card"><h3>4. Calculate a total with reduce</h3>
+<div class="label">INPUT</div><pre>[120,50,75,200]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload reduce ((item, total = 0) -> total + item)</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>445</pre>
+<p><strong>Learn:</strong> Use <code>reduce</code> when multiple values must become one accumulated result.</p></div>
+
+<div class="card"><h3>5. Group transactions by department</h3>
+<div class="label">INPUT</div><pre>[{"name":"Asha","department":"IT"},{"name":"Ravi","department":"HR"},{"name":"Kiran","department":"IT"}]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload groupBy $.department</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>{"IT":[{"name":"Asha","department":"IT"},{"name":"Kiran","department":"IT"}],"HR":[{"name":"Ravi","department":"HR"}]}</pre></div>
+
+<div class="card"><h3>6. Work with dates</h3>
+<div class="label">INPUT</div><pre>"2026-09-22"</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+(payload as Date) as String {format: "dd-MMM-yyyy"}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>"22-Sep-2026"</pre>
+<p><strong>Learn:</strong> Parse as <code>Date</code>, then format as a string.</p></div>
+
+<div class="card"><h3>7. Handle missing values safely</h3>
+<div class="label">INPUT</div><pre>{"name":"Asha"}</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+{
+  name: payload.name,
+  city: payload.city default "Unknown"
+}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>{"name":"Asha","city":"Unknown"}</pre></div>
+
+<div class="card"><h3>8. Transform nested order data</h3>
+<div class="label">INPUT</div><pre>{"orders":[{"id":1001,"items":[{"name":"Laptop","quantity":1},{"name":"Mouse","quantity":2}]}]}</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+payload.orders map (order) -> {
+  orderId: order.id,
+  products: order.items map $.name
+}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>[{"orderId":1001,"products":["Laptop","Mouse"]}]</pre>
+<p><strong>Think level by level:</strong> orders array → order object → items array → item field.</p></div>
+
+<div class="card"><h3>9. Calculate an API percentage</h3>
+<div class="label">INPUT</div><pre>{"successful":92,"total":100}</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+output application/json
+---
+{
+  successPercentage: (payload.successful / payload.total) * 100
+}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>{"successPercentage":92}</pre>
+<p>In production, explicitly decide what should happen when the denominator is zero or missing.</p></div>
+
+<div class="card"><h3>10. Build a reusable DataWeave function</h3>
+<div class="label">INPUT</div><pre>[{"name":"  asha "},{"name":" ravi"}]</pre>
+<div class="label">DATAWEAVE</div><pre>%dw 2.0
+import * from dw::core::Strings
+output application/json
+
+fun normalizeName(value) =
+  upper(trim(value))
+---
+payload map (customer) -> {
+  name: normalizeName(customer.name)
+}</pre>
+<div class="label">EXPECTED OUTPUT</div><pre>[{"name":"ASHA"},{"name":"RAVI"}]</pre>
+<p><strong>Learn:</strong> Reusable functions keep transformations readable and business rules easier to test.</p></div>
+
+<h2>How to practice</h2>
+<ol><li>Read only the question and input.</li><li>Predict the output.</li><li>Write your own DataWeave.</li><li>Run it against your Mule/DataWeave runtime.</li><li>Compare with the expected output.</li><li>Study the explanation and common mistake.</li><li>Try an edge case.</li><li>Rewrite the solution another valid way.</li><li>Explain the solution without looking at the answer.</li></ol>
+
+<h2>Easy → Medium → Advanced</h2>
+<h3>🟢 Easy</h3><p>Fundamentals, strings, numbers, arrays, objects, basic <code>map</code>/<code>filter</code>, dates, DateTime, null handling, <code>default</code> and selectors.</p>
+<h3>🟡 Medium</h3><p>Nested collections, <code>groupBy</code>, <code>orderBy</code>, <code>distinctBy</code>, <code>reduce</code>, <code>flatten</code>, <code>flatMap</code>, date calculations, DateTime transformations, functions and practical API transformations.</p>
+<h3>🔴 Advanced</h3><p>Complex nested transformations, dynamic objects, reusable functions, advanced filtering/mapping, error handling, XML/JSON/CSV combinations, performance considerations and difficult interview scenarios.</p>
+
+<h2>Interview preparation</h2>
+<p>Use this loop: <strong>learn the function → solve a basic problem → solve a scenario → predict output → explain trade-offs → handle an edge case.</strong></p>
+
+<h2>Explore the complete repository</h2>
+<p>The repository contains the 10,000-record practice bank, curated REAL-QA material, Easy/Medium/Advanced sections, critical interview questions, edge-case exercises, interactive learning tools and contribution guidance.</p>
+<p><a href="../index.html">Open the interactive DataWeave Practice Lab →</a></p>
+
+<footer><p><strong>DataWeave Questions &amp; Answers</strong> — open-source learning resource.</p><p>Source: <a href="https://github.com/Narsing-s/Dataweave-questions-answers" target="_blank" rel="noopener">GitHub repository</a> · <a href="https://mulenarsi-dataweave.blogspot.com/" target="_blank" rel="noopener">MuleNarsi Blog</a></p></footer>
+</main></body></html>
