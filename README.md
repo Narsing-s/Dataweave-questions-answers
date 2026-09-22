@@ -30,10 +30,13 @@ This project is prepared for public use as an open-source DataWeave learning pla
 
 - **Source and contributions:** GitHub
 - **Interactive site:** Vercel or GitHub Pages
+- **Live Blogger site:** https://mulenarsi-dataweave.blogspot.com/
 - **Versioned distribution:** GitHub Releases
 - **Community:** GitHub Issues/Discussions and developer communities
 
-See [`docs/PUBLIC-LAUNCH.md`](./docs/PUBLIC-LAUNCH.md) for the complete publishing, Vercel deployment, contribution, and community-distribution plan.\n\n- **Blogger publishing:** [`blogger/README.md`](./blogger/README.md) — ready-to-paste public DataWeave Q&A widget for Blogger.
+See [`docs/PUBLIC-LAUNCH.md`](./docs/PUBLIC-LAUNCH.md) for the complete publishing, Vercel deployment, contribution, and community-distribution plan.
+
+- **Blogger publishing:** [`blogger/README.md`](./blogger/README.md) — ready-to-paste public DataWeave Q&A widget for Blogger.
 
 ### 🤝 Want to contribute?
 
