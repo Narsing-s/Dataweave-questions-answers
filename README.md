@@ -2,6 +2,29 @@
 
 A practical, self-contained learning library for MuleSoft DataWeave developers built around one workflow:
 
+## 📌 About this repository
+
+This repository is an open-source **MuleSoft DataWeave learning and practice platform** designed to help beginners, developers, interview candidates, and experienced MuleSoft engineers learn DataWeave through practical examples rather than theory alone.
+
+It brings together a large structured question bank, readable curated Q&A, Easy/Medium/Advanced practice, interview-focused scenarios, output-prediction exercises, real-world transformation examples, and browser-based learning tools. The goal is to make DataWeave concepts easy to discover, understand, practice, and revise in one place.
+
+### What you can use it for
+
+- Learn DataWeave 2.x from fundamentals through advanced transformations.
+- Practice arrays, objects, strings, numbers, dates, DateTime, functions, selectors, error handling, and more.
+- Study practical nested-data and API transformation scenarios.
+- Prepare for MuleSoft/DataWeave interviews and certification-style questions.
+- Compare DataWeave input, transformation logic, and expected output.
+- Identify common mistakes and understand why a transformation works.
+- Browse the question bank through the repository's interactive learning site.
+- Contribute new, genuinely distinct questions and corrections to the open-source project.
+
+### Learning philosophy
+
+The repository follows a **concept-first, example-driven, no-duplicate** approach. A new question should add a genuinely different concept, edge case, or practical scenario—not simply rename the same example. Existing material is preserved while new coverage is organized under the appropriate difficulty and topic.
+
+A practical, self-contained learning library for MuleSoft DataWeave developers built around one workflow:
+
 **Question → Input → DataWeave Answer → Expected Output → Explanation → Common Mistakes → Interview Tip**
 
 ## 🚀 What is included
