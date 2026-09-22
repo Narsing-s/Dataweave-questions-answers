@@ -39,28 +39,21 @@ output application/json
 
 ---
 
-## 3. What do $, $, and $$ mean in DataWeave?
+## 3. What do $, $$, and $$$ mean in DataWeave?
 
-**Answer:** They are implicit lambda parameters. In array functions such as `map`, `# DataWeave Web Questions — Deduplicated
-
- represents the current value and `$` the current index. In object functions such as `mapObject`, `# DataWeave Web Questions — Deduplicated
-
- is the value, `$` the key, and `$# DataWeave Web Questions — Deduplicated
-
- the index.
+**Answer:** `$` is the current value, `$$` is the current index in array functions or current key in object functions, and `$$$` is the current index in object functions such as `mapObject`.
 
 **Example**
 ```dataweave
 %dw 2.0
 output application/json
 ---
-["A", "B", "C"] map { value: $, index: $ }
+[10, 20, 30] map (value, index) -> { value: value, index: index }
 ```
 
-**Output:** `[{"value":"A","index":0},{"value":"B","index":1},{"value":"C","index":2}]`
+**Output:** `[{"value":10,"index":0},{"value":20,"index":1},{"value":30,"index":2}]`
 
-**Explanation:** Named lambda parameters can be clearer in complex transformations, while implicit parameters are convenient for short expressions.
-
+**Explanation:** Named parameters are clearer for complex transformations, while implicit parameters are convenient for short expressions.
 ---
 
 ## 4. What is the difference between read and readUrl in DataWeave?
