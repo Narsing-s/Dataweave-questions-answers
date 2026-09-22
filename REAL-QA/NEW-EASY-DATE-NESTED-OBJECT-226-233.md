@@ -301,8 +301,3 @@ payload.account.customers filter $.active
 **Common Mistake:** Using map and returning Boolean values instead of filtering the records.
 
 **Interview Tip:** filter changes which array elements remain; map changes what each element becomes.
-```
-
-**Common Mistake:** Using map and returning Boolean values instead of filtering the records.
-
-**Interview Tip:** filter changes which array elements remain; map changes what each element becomes.
