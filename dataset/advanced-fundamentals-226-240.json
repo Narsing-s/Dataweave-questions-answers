@@ -1,0 +1,167 @@
+[
+  {
+    "id": "DW-A226",
+    "difficulty": "Advanced",
+    "topic": "Arrays",
+    "question": "Find the first eligible transaction with firstWith",
+    "input": "{\"minimum\":500,\"transactions\":[{\"id\":\"T1\",\"status\":\"PENDING\",\"amount\":900},{\"id\":\"T2\",\"status\":\"APPROVED\",\"amount\":300},{\"id\":\"T3\",\"status\":\"APPROVED\",\"amount\":750}]}",
+    "output": "{\"id\":\"T3\",\"status\":\"APPROVED\",\"amount\":750}",
+    "dataweave": "%dw 2.0\nimport firstWith from dw::core::Arrays\noutput application/json\n---\npayload.transactions firstWith ((tx) ->\n  tx.status == \"APPROVED\" and tx.amount >= payload.minimum\n)",
+    "explanation": "firstWith searches in source order and returns the first matching element, or null when no element matches.",
+    "commonMistakes": "Sorting or filtering first when the requirement is to preserve incoming priority order."
+  },
+  {
+    "id": "DW-A227",
+    "difficulty": "Advanced",
+    "topic": "Nested Data",
+    "question": "Calculate totals inside nested order lines",
+    "input": "{\"orders\":[{\"id\":\"O100\",\"lines\":[{\"sku\":\"A1\",\"qty\":2,\"price\":12.5},{\"sku\":\"B2\",\"qty\":3,\"price\":5}]},{\"id\":\"O101\",\"lines\":[{\"sku\":\"C3\",\"qty\":4,\"price\":7.25}]}]}",
+    "output": "[{\"id\":\"O100\",\"total\":40},{\"id\":\"O101\",\"total\":29}]",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload.orders map ((order) -> {\n  id: order.id,\n  total: order.lines reduce ((line, total = 0) ->\n    total + (line.qty * line.price)\n  )\n})",
+    "explanation": "The outer map creates one result per order; the inner reduce collapses each order's nested lines into one numeric total.",
+    "commonMistakes": "Applying one reduce to all orders instead of reducing each order's own lines array."
+  },
+  {
+    "id": "DW-A228",
+    "difficulty": "Advanced",
+    "topic": "Null & Default",
+    "question": "Apply defaults while calculating a nested invoice",
+    "input": "{\"invoice\":{\"subtotal\":1000,\"tax\":null,\"discount\":75}}",
+    "output": "{\"subtotal\":1000,\"tax\":0,\"discount\":75,\"total\":925}",
+    "dataweave": "%dw 2.0\noutput application/json\nvar invoice = payload.invoice\nvar tax = invoice.tax default 0\nvar discount = invoice.discount default 0\n---\n{\n  subtotal: invoice.subtotal,\n  tax: tax,\n  discount: discount,\n  total: invoice.subtotal + tax - discount\n}",
+    "explanation": "default provides a fallback for a value that is absent or null in this expression context.",
+    "commonMistakes": "Performing arithmetic directly against optional fields."
+  },
+  {
+    "id": "DW-A229",
+    "difficulty": "Advanced",
+    "topic": "Nested Data",
+    "question": "Preserve a nested optional object while defaulting one field",
+    "input": "{\"customer\":{\"id\":\"C101\",\"preferences\":{\"language\":null,\"currency\":\"EUR\"}}}",
+    "output": "{\"id\":\"C101\",\"preferences\":{\"language\":\"en\",\"currency\":\"EUR\"}}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\n{\n  id: payload.customer.id,\n  preferences: {\n    language: payload.customer.preferences.language default \"en\",\n    currency: payload.customer.preferences.currency\n  }\n}",
+    "explanation": "Only the nullable leaf value receives a fallback; the other preference remains unchanged.",
+    "commonMistakes": "Replacing the whole preferences object with a default object and losing existing fields."
+  },
+  {
+    "id": "DW-A230",
+    "difficulty": "Advanced",
+    "topic": "Arrays",
+    "question": "Filter nested payments and map a reconciliation view",
+    "input": "{\"accounts\":[{\"id\":\"A1\",\"payments\":[{\"id\":\"P1\",\"status\":\"SUCCESS\",\"amount\":1500},{\"id\":\"P2\",\"status\":\"FAILED\",\"amount\":3000},{\"id\":\"P3\",\"status\":\"SUCCESS\",\"amount\":800}]},{\"id\":\"A2\",\"payments\":[{\"id\":\"P4\",\"status\":\"SUCCESS\",\"amount\":2200}]}]}",
+    "output": "[{\"accountId\":\"A1\",\"payments\":[{\"paymentId\":\"P1\",\"amount\":1500}]},{\"accountId\":\"A2\",\"payments\":[{\"paymentId\":\"P4\",\"amount\":2200}]}]",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload.accounts map ((account) -> {\n  accountId: account.id,\n  payments: account.payments\n    filter ((payment) -> payment.status == \"SUCCESS\" and payment.amount > 1000)\n    map ((payment) -> {\n      paymentId: payment.id,\n      amount: payment.amount\n    })\n})",
+    "explanation": "The outer map keeps account boundaries. Inside each account, filter applies the business rule and map creates the target contract.",
+    "commonMistakes": "Filtering payload.accounts instead of the nested payments collection."
+  },
+  {
+    "id": "DW-A231",
+    "difficulty": "Advanced",
+    "topic": "Numbers",
+    "question": "Calculate a guarded percentage variance",
+    "input": "{\"expected\":1250,\"actual\":1187.5}",
+    "output": "{\"expected\":1250,\"actual\":1187.5,\"variancePercent\":-5}",
+    "dataweave": "%dw 2.0\noutput application/json\nvar expected = payload.expected\nvar actual = payload.actual\n---\n{\n  expected: expected,\n  actual: actual,\n  variancePercent:\n    if (expected == 0) 0\n    else round(((actual - expected) / expected) * 100 * 100) / 100\n}",
+    "explanation": "The denominator is checked before division and the result is rounded to two decimal places.",
+    "commonMistakes": "Dividing before checking for zero."
+  },
+  {
+    "id": "DW-A232",
+    "difficulty": "Advanced",
+    "topic": "Numbers",
+    "question": "Build a weighted score from nested numeric factors",
+    "input": "{\"factors\":[{\"name\":\"credit\",\"score\":80,\"weight\":0.5},{\"name\":\"income\",\"score\":70,\"weight\":0.3},{\"name\":\"history\",\"score\":90,\"weight\":0.2}]}",
+    "output": "{\"weightedScore\":79}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\n{\n  weightedScore:\n    payload.factors\n      map ((factor) -> factor.score * factor.weight)\n      reduce ((value, total = 0) -> total + value)\n}",
+    "explanation": "Each factor becomes a weighted contribution and reduce combines the contributions.",
+    "commonMistakes": "Adding raw scores without applying weights."
+  },
+  {
+    "id": "DW-A233",
+    "difficulty": "Advanced",
+    "topic": "Objects",
+    "question": "Convert an object of thresholds into normalized numbers",
+    "input": "{\"warning\":\"70\",\"critical\":\"90\",\"block\":\"100\"}",
+    "output": "{\"warning\":70,\"critical\":90,\"block\":100}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload mapObject ((value, key) -> {\n  (key): value as Number\n})",
+    "explanation": "mapObject iterates over object key-value pairs, allowing each value to be coerced while retaining the dynamic key.",
+    "commonMistakes": "Using map, which is intended for arrays rather than object key-value pairs."
+  },
+  {
+    "id": "DW-A234",
+    "difficulty": "Advanced",
+    "topic": "Objects",
+    "question": "Remove internal object fields dynamically",
+    "input": "{\"id\":\"C1\",\"name\":\"Ravi\",\"_debugId\":\"DBG-77\",\"_source\":\"legacy\",\"status\":\"ACTIVE\"}",
+    "output": "{\"id\":\"C1\",\"name\":\"Ravi\",\"status\":\"ACTIVE\"}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload filterObject ((value, key) -> !(key startsWith \"_\"))",
+    "explanation": "filterObject evaluates each object entry and retains entries whose key does not start with the internal-field prefix.",
+    "commonMistakes": "Applying array filter directly to an object."
+  },
+  {
+    "id": "DW-A235",
+    "difficulty": "Advanced",
+    "topic": "Functions",
+    "question": "Build a reusable function for conditional normalization",
+    "input": "{\"firstName\":\"  Ana \",\"middleName\":null,\"city\":\"  hyderabad \"}",
+    "output": "{\"firstName\":\"ANA\",\"middleName\":null,\"city\":\"HYDERABAD\"}",
+    "dataweave": "%dw 2.0\nimport * from dw::core::Strings\noutput application/json\n\nfun normalize(value) =\n  if (value == null) null\n  else upper(trim(value))\n\n---\n{\n  firstName: normalize(payload.firstName),\n  middleName: normalize(payload.middleName),\n  city: normalize(payload.city)\n}",
+    "explanation": "The function centralizes normalization and explicitly preserves null.",
+    "commonMistakes": "Calling string functions on null without defining null behavior."
+  },
+  {
+    "id": "DW-A236",
+    "difficulty": "Advanced",
+    "topic": "Strings",
+    "question": "Normalize a composite reference string",
+    "input": "{\"reference\":\"IND / HYD / 00125\"}",
+    "output": "{\"reference\":\"IND-HYD-00125\"}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\n{\n  reference:\n    ((payload.reference splitBy \"/\")\n      map ((part) -> trim(part)))\n      joinBy \"-\"\n}",
+    "explanation": "The string is split, each segment is normalized, and the array is joined with the required delimiter.",
+    "commonMistakes": "Trimming the whole string only, leaving spaces around internal segments."
+  },
+  {
+    "id": "DW-A237",
+    "difficulty": "Advanced",
+    "topic": "Arrays",
+    "question": "Filter and map only complete customer records",
+    "input": "[{\"id\":\"C1\",\"name\":\"Ana\",\"balance\":1500},{\"id\":\"\",\"name\":\"Bob\",\"balance\":2000},{\"id\":\"C3\",\"name\":\"Cara\",\"balance\":0},{\"id\":\"C4\",\"name\":\"Dan\",\"balance\":700}]",
+    "output": "[{\"customerId\":\"C1\",\"availableBalance\":1500},{\"customerId\":\"C4\",\"availableBalance\":700}]",
+    "dataweave": "%dw 2.0\nimport isBlank from dw::core::Strings\noutput application/json\n---\npayload\n  filter ((customer) -> !isBlank(customer.id) and customer.balance > 0)\n  map ((customer) -> {\n    customerId: customer.id,\n    availableBalance: customer.balance\n  })",
+    "explanation": "filter establishes eligibility first; map reshapes only eligible records.",
+    "commonMistakes": "Mapping first and then trying to remove incomplete records."
+  },
+  {
+    "id": "DW-A238",
+    "difficulty": "Advanced",
+    "topic": "Arrays",
+    "question": "Map nested beneficiaries after filtering active accounts",
+    "input": "{\"accounts\":[{\"id\":\"A1\",\"status\":\"ACTIVE\",\"beneficiaries\":[{\"name\":\"Ana\",\"allocation\":60},{\"name\":\"Bob\",\"allocation\":20}]},{\"id\":\"A2\",\"status\":\"CLOSED\",\"beneficiaries\":[{\"name\":\"Cara\",\"allocation\":100}]}]}",
+    "output": "[{\"accountId\":\"A1\",\"beneficiaries\":[\"Ana\"]}]",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload.accounts\n  filter ((account) -> account.status == \"ACTIVE\")\n  map ((account) -> {\n    accountId: account.id,\n    beneficiaries:\n      account.beneficiaries\n        filter ((beneficiary) -> beneficiary.allocation > 25)\n        map ((beneficiary) -> beneficiary.name)\n  })",
+    "explanation": "The first filter selects active accounts; the nested filter applies a separate rule to each account's beneficiaries.",
+    "commonMistakes": "Applying the beneficiary condition to the account object."
+  },
+  {
+    "id": "DW-A239",
+    "difficulty": "Advanced",
+    "topic": "Arrays",
+    "question": "Safely map arrays containing null elements",
+    "input": "{\"codes\":[\" ab12 \",null,\" cd34 \"]}",
+    "output": "{\"codes\":[\"AB12\",null,\"CD34\"]}",
+    "dataweave": "%dw 2.0\nimport * from dw::core::Strings\noutput application/json\n---\n{\n  codes: payload.codes map ((code) ->\n    if (code == null) null else upper(trim(code))\n  )\n}",
+    "explanation": "The lambda explicitly handles null before invoking string functions.",
+    "commonMistakes": "Assuming every array element has the same type."
+  },
+  {
+    "id": "DW-A240",
+    "difficulty": "Advanced",
+    "topic": "Objects",
+    "question": "Combine object filtering with nested array mapping",
+    "input": "{\"payments\":{\"enabled\":true,\"endpoints\":[\"/pay\",\"/refund\"]},\"reports\":{\"enabled\":false,\"endpoints\":[\"/daily\"]},\"customers\":{\"enabled\":true,\"endpoints\":[\"/customers\"]}}",
+    "output": "{\"payments\":[\"/pay\",\"/refund\"],\"customers\":[\"/customers\"]}",
+    "dataweave": "%dw 2.0\noutput application/json\n---\npayload\n  filterObject ((service) -> service.enabled == true)\n  mapObject ((service, name) -> {\n    (name): service.endpoints map ((endpoint) -> endpoint)\n  })",
+    "explanation": "filterObject removes disabled service definitions. mapObject preserves each dynamic service name while transforming its nested endpoint array.",
+    "commonMistakes": "Hard-coding service names and losing the dynamic configuration model."
+  }
+]
