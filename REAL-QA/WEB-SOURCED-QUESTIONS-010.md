@@ -1,80 +1,25 @@
 # Web-Sourced DataWeave Questions — Batch 010
 
-These entries were selected from the current MuleSoft DataWeave reference after repository duplicate checks. Existing concepts were left untouched.
+These entries were selected from public DataWeave documentation and kept only when the repository did not already contain the same concept. Existing questions and semantically equivalent gap questions are not repeated.
 
-## Q74 — How do you generate a random integer in DataWeave?
+## Q74 — What are the `dw::util::Values` helper functions `field`, `attr`, and `index` used for in DataWeave?
 
-**Answer:** Use `randomInt(max)`. It returns a pseudo-random whole number from `0` up to, but not including, the specified maximum.
-
-**Example**
-```dataweave
-%dw 2.0
-output application/json
----
-{
-  value: randomInt(100),
-  rule: "0 <= value < 100"
-}
-```
-
-**Output**
-```json
-{
-  "value": 37,
-  "rule": "0 <= value < 100"
-}
-```
-
-**Explanation:** The numeric value is intentionally variable, so the example output is illustrative rather than guaranteed. `randomInt(100)` produces a pseudo-random integer in the range 0–99. citeturn0search3
-
-## Q75 — How do you retrieve all properties configured for the DataWeave runtime?
-
-**Answer:** Import `dw::Runtime` and call `props()` to retrieve the runtime properties.
+**Answer:** The `dw::util::Values` module provides helper functions that create `PathElement` values for dynamic selectors and update-style operations. `field(name)` creates a path element for an object field, `attr(name)` creates one for an XML attribute, and `index(number)` creates one for an array element.
 
 **Example**
 ```dataweave
 %dw 2.0
-import * from dw::Runtime
+import * from dw::util::Values
 output application/json
 ---
 {
-  configuredProperties: props()
+  fieldPath: field("customerId"),
+  attributePath: attr("id"),
+  arrayPath: index(1)
 }
 ```
 
 **Output**
-```json
-{
-  "configuredProperties": {
-    "example.property": "example-value"
-  }
-}
-```
+The exact serialized representation of a `PathElement` is runtime/type dependent. Conceptually, the result contains three path elements representing an object field, an XML attribute, and array index `1`.
 
-**Explanation:** `props()` returns the properties configured for the DataWeave runtime. The exact property set depends on the runtime environment, so the output shown is illustrative. This is different from `prop(name)`, which requests one named property. citeturn2view0
-
-## Q76 — What does `locationString` do in DataWeave?
-
-**Answer:** `locationString(value)` returns a string describing the source location of a value when DataWeave can trace that value back to a DataWeave source file; otherwise it can return `null`.
-
-**Example**
-```dataweave
-%dw 2.0
-import * from dw::Runtime
-output application/json
----
-{
-  value: payload.name,
-  sourceLocation: locationString(payload.name)
-}
-```
-
-**Output**
-```json
-{
-  "value": "Ravi",
-  "sourceLocation": null
-}
-```
-
-**Explanation:** Source-location information is available only when the runtime can trace the value back to a DataWeave file. For externally supplied payload data, `null` can therefore be a valid result. citeturn2view0
+**Explanation:** These helpers are useful when a transformation needs to construct selector paths dynamically rather than hard-code a selector expression. The `Values` module was introduced in DataWeave 2.2.2 and includes `attr`, `field`, `index`, `mask`, and `update`. citeturn0search13
