@@ -30,6 +30,7 @@ jobs:
           mkdir -p _site/dataset
           cp public-site/index.html _site/index.html
           cp dataset/questions-10000.json _site/dataset/questions-10000.json
+          cp dataset/advanced-fundamentals-226-240.json _site/dataset/advanced-fundamentals-226-240.json
           touch _site/.nojekyll
 
       - name: Setup Pages
