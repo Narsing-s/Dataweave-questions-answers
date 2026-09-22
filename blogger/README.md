@@ -6,7 +6,40 @@ This folder contains a polished Blogger-ready public DataWeave Q&A learning expe
 
 https://mulenarsi-dataweave.blogspot.com/
 
-## How to publish
+## Article publishing system
+
+The repository now also contains a **Blogger-style article layer** under `articles/`.
+
+- `articles/index.html` — article directory
+- `articles/dataweave-practice-made-easy.html` — first published-ready article
+- `scripts/validate-articles.mjs` — validates the article package
+- `.github/workflows/publish-pages.yml` — automatically publishes article pages with the existing GitHub Pages deployment
+
+Every push to `main` rebuilds the public Pages artifact and includes the article directory. This gives each article a stable, shareable web page while GitHub remains the source of truth.
+
+### Article URL pattern
+
+Once GitHub Pages is enabled for the repository, articles use:
+
+`/articles/<article-slug>.html`
+
+The first article is:
+
+`/articles/dataweave-practice-made-easy.html`
+
+The workflow validates the article before deployment, so a malformed article does not silently enter the published artifact.
+
+### Adding another article
+
+1. Create `articles/<slug>.html`.
+2. Add the article to `articles/index.html`.
+3. Keep the article original and conceptually distinct from existing Q&A.
+4. Push to `main`.
+5. GitHub Actions validates and publishes the article with the existing Pages deployment.
+
+For a real Blogger post on `mulenarsi-dataweave.blogspot.com`, the final Google/Blogger authorization still has to happen in the Blogger account. The repository deliberately does not store Google passwords, OAuth tokens, or API keys.
+
+## How to publish the full learning widget on Blogger
 
 1. Create a Blogger blog.
 2. In Blogger, open Layout → Add a Gadget → HTML/JavaScript.
@@ -45,4 +78,4 @@ See:
 
 Blogger is the presentation/hosting layer. GitHub remains the source of truth for the dataset and application code.
 
-Google's official Blogger documentation confirms that HTML/JavaScript gadgets can be added through the Blogger Layout flow.
+Google's Blogger API supports programmatic post insertion and publishing, but that requires authenticated Blogger authorization. The repository never stores personal Google credentials or access tokens.
